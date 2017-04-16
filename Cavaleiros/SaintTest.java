@@ -33,4 +33,12 @@ public class SaintTest
         assertEquals(Genero.NAO_INFORMADO, mm.getGenero());
         
     }
+    
+    @Test
+    public void cavaleiroECriadoComVida(){
+        Armadura aries = new Armadura("Áries", Categoria.OURO);
+        Saint mu = new Saint("Mu", aries);
+        assertEquals(Status.VIVO, mu.getStatus());
+        
+    }
 }
