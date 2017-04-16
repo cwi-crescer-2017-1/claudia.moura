@@ -30,6 +30,7 @@ public class SaintTest
     public void aoCriarSaintGeneroENaoInformado(){
         Armadura cancer = new Armadura("Câncer", Categoria.OURO);
         Saint mm = new Saint("Máscara da Morte", cancer);
+        assertEquals(Genero.NAO_INFORMADO, mm.getGenero());
         
     }
 }

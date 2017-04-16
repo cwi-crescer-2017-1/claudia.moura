@@ -19,7 +19,7 @@ public class Saint
     }
     
     public Genero getGenero(){
-        return this.genero();
+        return this.genero;
     }
     
     public void setGenero(Genero genero){
