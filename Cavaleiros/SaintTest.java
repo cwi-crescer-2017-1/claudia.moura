@@ -3,7 +3,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class SaintTest
 {
    @Test   
@@ -40,5 +39,21 @@ public class SaintTest
         Saint mu = new Saint("Mu", aries);
         assertEquals(Status.VIVO, mu.getStatus());
         
+    }
+    
+    @Test
+    public void cavaleiroECriadoComVidaIgualACem(){
+        Armadura aries = new Armadura("Áries", Categoria.OURO);
+        Saint mu = new Saint("Mu", aries);
+        assertEquals(100.0, mu.getVida(), 0);
+    }
+   
+    @Test   
+     public void perderVidaFazVidaDiminuirNaQuantidadeIndicada(){
+       Armadura unicornio = new Armadura("Unicórnio", Categoria.BRONZE);
+       Saint jabu = new Saint("Jabu", unicornio);
+       jabu.perderVida(15);
+       assertEquals(85.0, jabu.getVida(), 0);
+
     }
 }
