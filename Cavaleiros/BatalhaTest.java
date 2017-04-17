@@ -14,7 +14,7 @@ import org.junit.Test;
 public class BatalhaTest
 {
     @Test
-    public void casoCavaleirosIguaisSegundoPerdeVidaEPrimeiroMantem() {
+    public void casoCavaleirosIguaisSegundoPerdeVidaEPrimeiroMantem()  throws Exception {
         Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         Saint mm = new Saint("Máscara da Morte", new Armadura("Gêmeos", Categoria.OURO));
                 
@@ -26,7 +26,7 @@ public class BatalhaTest
     }
     
     @Test
-    public void casoCavaleirosDiferentesCategoriaMenorPerdeVidaEMaiorMantem() {
+    public void casoCavaleirosDiferentesCategoriaMenorPerdeVidaEMaiorMantem()  throws Exception{
         Saint shiryu = new Saint("Shiryu", new Armadura("Dragão", Categoria.BRONZE));
         Saint shura = new Saint("Shura", new Armadura("Capricórnio", Categoria.OURO));
         
@@ -37,33 +37,4 @@ public class BatalhaTest
         assertEquals(100, shura.getVida(),0);
     }
     
-    
-    
-    /**
-     * Construtor default para a classe de teste BatalhaTest
-     */
-    public BatalhaTest()
-    {
-        
-    }
-
-    /**
-     * Define a .
-     *
-     * Chamado antes de cada método de caso de teste.
-     */
-    @Before
-    public void setUp()
-    {
-    }
-
-    /**
-     * Tears down the test fixture.
-     *
-     * Chamado após cada método de teste de caso.
-     */
-    @After
-    public void tearDown()
-    {
-    }
 }
