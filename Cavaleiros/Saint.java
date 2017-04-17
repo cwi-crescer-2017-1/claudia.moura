@@ -44,5 +44,9 @@ public class Saint
        vida = this.vida -= vidaPerdida;
        return vida;
     }
-     
+         
+    public Armadura getArmadura() {
+       return this.armadura;
+    }
 }
+

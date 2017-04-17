@@ -20,7 +20,7 @@ public class SaintTest
     
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() {
-        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.BRONZE));
+        Saint saga = new Saint("Saga", new Armadura("Gêmeos", Categoria.OURO));
         assertEquals(false, saga.getArmaduraVestida());
         
     }
@@ -42,7 +42,7 @@ public class SaintTest
     }
     
     @Test
-    public void cavaleiroECriadoComVidaIgualACem(){
+    public void cavaleiroECriadoComVidaIgualA100(){
         Armadura aries = new Armadura("Áries", Categoria.OURO);
         Saint mu = new Saint("Mu", aries);
         assertEquals(100.0, mu.getVida(), 0);

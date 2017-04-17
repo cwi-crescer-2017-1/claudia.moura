@@ -4,6 +4,10 @@ public class Armadura {
     
     public Armadura(String constelacao, Categoria categoria){
         this.constelacao = constelacao;
-        this.categoria = Categoria.BRONZE;
+        this.categoria = categoria;
+    }
+    
+    public Categoria getCategoria(){
+        return this.categoria;
     }
 }
