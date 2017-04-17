@@ -63,4 +63,12 @@ public class SaintTest
        jabu.perderVida(15);
        assertEquals(85.0, jabu.getVida(), 0);
     }
+    
+    @Test
+    public void aoCriarSaintPossui5Sentidos(){
+        Saint shun = new Saint("Shun", new Armadura("Andrômeda", Categoria.BRONZE));
+        assertEquals(5, shun.getQtdSentidosDespertados());
+        
+    
+    }
 }
