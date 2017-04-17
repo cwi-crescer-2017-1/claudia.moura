@@ -33,6 +33,14 @@ public class SaintTest
         
     }
     
+     @Test   
+     public void deveSerPossivelMudarOGenero(){
+       Armadura unicornio = new Armadura("Unicórnio", Categoria.BRONZE);
+       Saint jabu = new Saint("Jabu", unicornio);
+       jabu.setGenero(Genero.MASCULINO);
+       assertEquals(Genero.MASCULINO, jabu.getGenero());
+    }
+    
     @Test
     public void cavaleiroECriadoComVida(){
         Armadura aries = new Armadura("Áries", Categoria.OURO);
@@ -54,6 +62,5 @@ public class SaintTest
        Saint jabu = new Saint("Jabu", unicornio);
        jabu.perderVida(15);
        assertEquals(85.0, jabu.getVida(), 0);
-
     }
 }
