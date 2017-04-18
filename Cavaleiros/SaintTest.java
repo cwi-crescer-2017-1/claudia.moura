@@ -60,7 +60,11 @@ public class SaintTest
         BronzeSaint jabu = new BronzeSaint("Jabu", unicornio);
         jabu.perderVida(15);
         assertEquals(85.0, jabu.getVida(), 0);
-    }
+        jabu.perderVida(50);
+        assertEquals(35.0, jabu.getVida(), 0);
+        jabu.perderVida(35);
+        assertEquals(0.0, jabu.getVida(), 0);
+    }	
 
     @Test
     public void aoCriarSaintPossui5Sentidos()throws Exception{
@@ -68,7 +72,7 @@ public class SaintTest
         assertEquals(5, shun.getQtdSentidosDespertados());
 
     }
-    
+
     @Test
     public void saintPrataPossui6Sentidos()throws Exception{
         SilverSaint marin = new SilverSaint("Marin", new Armadura(new Constelacao("Águia"), Categoria.PRATA));
@@ -87,7 +91,6 @@ public class SaintTest
         ikki.perderVida(100);
         assertEquals(ikki.getStatus(), Status.MORTO);
     }
-    
-    
+
 
 }

@@ -1,3 +1,5 @@
+import java.security.InvalidParameterException;
+
 public class Saint
 {
     private String nome;
@@ -46,14 +48,19 @@ public class Saint
         return this.vida;
     }
 
-    public double perderVida(double vidaPerdida)throws Exception{
-        vida = this.vida -= vidaPerdida;       
+    public double perderVida(double vidaPerdida){
+
         if(vidaPerdida < 0){
-            throw new Exception("Valor inválido");
-        } else if(vida < vidaPerdida){
-            vida = 0;
+            throw new InvalidParameterException("vidaPerdida");
+        }else{
+            this.vida = this.vida -= vidaPerdida; 
+        }
+
+        if (this.vida < 0){
+            this.vida = 0;
+            this.status = Status.MORTO;
         }        
-        return vida;        
+        return this.vida;        
     }
 
     public Armadura getArmadura() {
@@ -64,27 +71,14 @@ public class Saint
         return this.qtdSentidosDespertados;
     }
 
-    public void cavaleiroMorto(){
-        if(this.vida < 1){
-            this.status = Status.MORTO;
-        }
-    }
-    
-
-   /* public Golpe[] getGolpes(){
+    public Golpe[] getGolpes(){
         return this.armadura.getConstelacao().getGolpes();
     }
-
-    public void aprendendoGolpe(Golpe golpe) throws Exception{
-        armadura.getConstelacao().adicionarGolpe(golpe);
+    
+    public void aprenderGolpe(Golpe golpe){
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
     }
 
-    public void getProximoGolpe(Golpe golpe) throws Exception{
-        nrLista = 0;
-        if (nrLista <=2){
-            nrLista++;
-        } else {
-            nrLista = 0;            
-        }
-    }*/
+    // public Golpe(String nome, int fator dano) {};
+
 }
