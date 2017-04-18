@@ -7,52 +7,66 @@ public class Saint
     private Status status = Status.VIVO;
     private double vida = 100.0;
     protected int qtdSentidosDespertados;
-    
+
     public Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;  
         this.armadura = armadura;
-         
+
     }
-    
+
     public void vestirArmadura(){
         this.armaduraVestida = true;
     }
-    
+
     public boolean getArmaduraVestida() {
         return this.armaduraVestida;
     }
-    
+
     public Genero getGenero(){
         return this.genero;
     }
-    
+
     public void setGenero(Genero genero){
         this.genero = genero;
     }
-    
+
     public void setStatus(Status status){
         this.status = status;
     }    
-    
+
     public Status getStatus(){
+        if(this.vida < 1){
+            this.status = Status.MORTO;
+        }
         return this.status;
     }
 
     public double getVida(){
         return this.vida;
     }
-    
-    public double perderVida(double vidaPerdida){
-       vida = this.vida -= vidaPerdida;
-       return vida;
+
+    public double perderVida(double vidaPerdida)throws Exception{
+        vida = this.vida -= vidaPerdida;       
+        if(vidaPerdida < 0){
+            throw new Exception("Valor inválido");
+        } else if(vida < vidaPerdida){
+            vida = 0;
+        }        
+        return vida;        
     }
-         
+
     public Armadura getArmadura() {
-       return this.armadura;
+        return this.armadura;
     }
-    
+
     public int getQtdSentidosDespertados(){
         return this.qtdSentidosDespertados;
+    }
+
+    public void cavaleiroMorto(){
+        if(this.vida < 1){
+            this.status = Status.MORTO;
+        }
     }
 }
 
