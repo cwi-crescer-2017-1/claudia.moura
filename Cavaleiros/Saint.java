@@ -10,6 +10,7 @@ public class Saint
     private double vida = 100.0;
     protected int qtdSentidosDespertados;
     private Golpe golpe;
+    private int acumuladorProximoGolpe = 0;
 
     public Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;  
@@ -71,14 +72,18 @@ public class Saint
         return this.qtdSentidosDespertados;
     }
 
-    public Golpe[] getGolpes(){
-        return this.armadura.getConstelacao().getGolpes();
+    public Golpe getGolpes(){
+        return this.armadura.getConstelacao().<Golpe>();
     }
-    
+
     public void aprenderGolpe(Golpe golpe){
         this.armadura.getConstelacao().adicionarGolpe(golpe);
     }
 
-    // public Golpe(String nome, int fator dano) {};
+    public Golpe getProximoGolpe(){
+        Golpe golpes = getGolpes();
+        int posicao = this.acumuladorProximoGolpe % golpes.length;
+        return golpes[posicao];
+    }
 
 }
