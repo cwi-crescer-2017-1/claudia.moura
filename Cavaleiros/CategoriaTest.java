@@ -7,7 +7,7 @@ public class CategoriaTest
 {
     @Test
     public void armaduraDeOuroRetornaValor3(){
-       Armadura virgo = new Armadura("Virgem", Categoria.OURO);
+       Armadura virgo = new Armadura(new Constelacao("Virgem"), Categoria.OURO);
        //Saint shaka = new Saint("Shaka", virgo);
        //int valorArmadura = virgo.getCategoria().getValor();
        assertEquals(3, virgo.getCategoria().getValor());
@@ -15,13 +15,13 @@ public class CategoriaTest
     
     @Test
     public void armaduraDePrataRetornaValor2(){
-        Armadura virgo = new Armadura("Virgem", Categoria.PRATA);
-        assertEquals(2, virgo.getCategoria().getValor());
+        Armadura corvo = new Armadura(new Constelacao("Corvo"), Categoria.PRATA);
+        assertEquals(2, corvo.getCategoria().getValor());
     }
     
     @Test
     public void armaduraDeBronzeRetornaValor1(){
-        Armadura virgo = new Armadura("Virgem", Categoria.BRONZE);
-        assertEquals(1, virgo.getCategoria().getValor());
+        Armadura hidra = new Armadura(new Constelacao("Hidra"), Categoria.BRONZE);
+        assertEquals(1, hidra.getCategoria().getValor());
     }
 }
