@@ -87,4 +87,7 @@ public class SaintTest
         ikki.perderVida(100);
         assertEquals(ikki.getStatus(), Status.MORTO);
     }
+    
+    
+
 }
