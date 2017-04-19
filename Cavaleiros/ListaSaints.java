@@ -55,72 +55,107 @@ public class ListaSaints {
     public ArrayList<Saint> buscarPorStatus(Status status){
         /*ArrayList<Saint> subLista = new ArrayList<Saint>();
         for (Saint saint : this.listaSaints) {
-            if (saint.getStatus().equals(status)){
-                subLista.add(saint);
-            }
+        if (saint.getStatus().equals(status)){
+        subLista.add(saint);
+        }
         }
         return subLista;*/
-			        return (ArrayList<Saint>)this.listaSaints.stream()
-            .filter(s -> s.getStatus().equals(status))
-            .collect(Collectors.toList());       
+        return (ArrayList<Saint>)this.listaSaints.stream()
+        .filter(s -> s.getStatus().equals(status))
+        .collect(Collectors.toList());       
 
-
-    }		
-
+    }       
     //getSaintMaiorVida(): retorna o Saint com maior vida da lista. Caso existam um ou mais Saint com a mesma maior quantidade de vida, retorne o primeiro.
     public Saint getSaintMaiorVida(){
-		if(listaSaints.isEmpty()){
-			return null;
-		}
+        if(listaSaints.isEmpty()){
+            return null;
+        }
 
-		Saint maiorVida = this.listaSaints.get(0);
+        Saint maiorVida = this.listaSaints.get(0);
 
         for (int i = 1; i < this.listaSaints.size(); i++) {
-			Saint saint = this.listaSaints.get(i);
-			boolean encontreiMaior = saint.getVida() > maiorVida.getVida();
-			if(encontreiMaior){
-				maiorVida = saint;
-			 }
-		}
-		return maiorVida;        	  
+            Saint saint = this.listaSaints.get(i);
+            boolean encontreiMaior = saint.getVida() > maiorVida.getVida();
+            if(encontreiMaior){
+                maiorVida = saint;
+            }
+        }
+        return maiorVida;             
     }
-         
+
     //getSaintMenorVida(): retorna o Saint com menor vida da lista. Caso existam um ou mais Saint com a mesma menor quantidade de vida, retorne o primeiro.
     public Saint getSaintMenorVida(){
-		if(listaSaints.isEmpty()){
-			return null;
-		}
+        if(listaSaints.isEmpty()){
+            return null;
+        }
 
-		Saint menorVida = this.listaSaints.get(0);
+        Saint menorVida = this.listaSaints.get(0);
 
         for (int i = 1; i < this.listaSaints.size(); i++) {
-			Saint saint = this.listaSaints.get(i);
-			boolean encontreiMenor = saint.getVida() < menorVida.getVida();
-			if(encontreiMenor){
-				menorVida = saint;
-			 }
-		}
-		return menorVida; 
+            Saint saint = this.listaSaints.get(i);
+            boolean encontreiMenor = saint.getVida() < menorVida.getVida();
+            if(encontreiMenor){
+                menorVida = saint;
+            }
+        }
+        return menorVida; 
     }
 
     //ordenar(): ordena os Saints de acordo com sua vida (ascendente, do menor ao maior). Importante: esta operação APENAS ordena a lista de Saints e não a retorna.
     public void ordenar(){
 
-		boolean posicoesSendoTrocadas = false;
-		do {
-			for (int i = 0; i< this.listaSaints.size() - 1; i++){
-				Saint atual = this.listaSaints.get(i);
-				Saint proximo = this.listaSaints.get(i+ 1);
-				boolean precisaTrocar = atual.getVida() > proximo.getVida();
-				if(precisaTrocar){
-					Saint troca = atual;
-					this.listaSaints.set(i, proximo);
-					this.listaSaints.set(i + 1, troca);
-					posicoesSendoTrocadas = true;
-				}
-			}
-		} while (posicoesSendoTrocadas);
-		
+        boolean posicoesSendoTrocadas = false;
+        do {
+            for (int i = 0; i< this.listaSaints.size() - 1; i++){
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i+ 1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                if(precisaTrocar){
+                    Saint troca = atual;
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i + 1, troca);
+                    posicoesSendoTrocadas = true;
+                }
+            }
+        } while (posicoesSendoTrocadas);
+
+    }
+
+    public void ordenar(TipoOrdenacao tipo){
+        if (tipo.DESCENDENTE.equals(tipo)) {
+            boolean posicoesSendoTrocadas = false;
+            do {
+                for (int i = 0; i< this.listaSaints.size() - 1; i++){
+                    Saint atual = this.listaSaints.get(i);
+                    Saint proximo = this.listaSaints.get(i+ 1);
+                    boolean precisaTrocar = atual.getVida() < proximo.getVida();
+                    if(precisaTrocar){
+                        Saint troca = atual;
+                        this.listaSaints.set(i, proximo);
+                        this.listaSaints.set(i + 1, troca);
+                        posicoesSendoTrocadas = true;
+                    }
+                }
+            } while (posicoesSendoTrocadas);
+
+        }else{
+            boolean posicoesSendoTrocadas = false;
+        do {
+            for (int i = 0; i< this.listaSaints.size() - 1; i++){
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i+ 1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                if(precisaTrocar){
+                    Saint troca = atual;
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i + 1, troca);
+                    posicoesSendoTrocadas = true;
+                }
+            }
+        } while (posicoesSendoTrocadas);
+            //this.listaSaints.ordenar();
+        }
+
     }
 }
 
