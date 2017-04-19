@@ -111,6 +111,7 @@ public class SaintTest
         saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
         ArrayList<Golpe> golpes = saga.getGolpes();
         assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(1, golpes.size());
 
         // TODO: assert null
     }

@@ -14,6 +14,10 @@ public class Saint
     private Golpe golpe;
     private int acumuladorProximoGolpe = 0;
 
+ 	public String getNome() {
+        return this.nome;
+    }
+
     public Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;  
         this.armadura = armadura;
