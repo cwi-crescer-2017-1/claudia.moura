@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 public class SaintTest
 {
@@ -108,10 +109,9 @@ public class SaintTest
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         Golpe outraDimensao = new Golpe("Outra dimensão", 10);
         saga.aprenderGolpe(new Golpe("Outra dimensão", 10));
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertNull(golpes[1]);
-        assertNull(golpes[2]);
+        ArrayList<Golpe> golpes = saga.getGolpes();
+        assertEquals(outraDimensao, golpes.get(0));
+
         // TODO: assert null
     }
 
@@ -122,29 +122,13 @@ public class SaintTest
         Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
         saga.aprenderGolpe(outraDimensao);
         saga.aprenderGolpe(explosaoGalatica);
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
-        assertNull(golpes[2]);
+        ArrayList<Golpe> golpes = saga.getGolpes();
+        assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(explosaoGalatica, golpes.get(1));
     }
 
-    @Test
-    public void aprenderTresGolpes() throws Exception {
-        Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Golpe outraDimensao = new Golpe("Outra dimensão", 10);
-        Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
-        Golpe sataImperial = new Golpe("Satã Imperial", 42);
-        saga.aprenderGolpe(outraDimensao);
-        saga.aprenderGolpe(explosaoGalatica);
-        saga.aprenderGolpe(sataImperial);
-        Golpe[] golpes = saga.getGolpes();
-        assertEquals(outraDimensao, golpes[0]);
-        assertEquals(explosaoGalatica, golpes[1]);
-        assertEquals(sataImperial, golpes[2]);
-    }
-
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
-    public void aprenderQuatroGolpesLancaErro() throws Exception {
+    @Test //(expected=ArrayIndexOutOfBoundsException.class)
+    public void aprenderQuatroGolpesNaoLancaMaisErro() throws Exception {
         Saint saga = new Saint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
         Golpe outraDimensao = new Golpe("Outra dimensão", 10);
         Golpe explosaoGalatica = new Golpe("Explosão Galáctica", 11);
@@ -154,6 +138,11 @@ public class SaintTest
         saga.aprenderGolpe(explosaoGalatica);
         saga.aprenderGolpe(sataImperial);
         saga.aprenderGolpe(rasteira);
+        ArrayList<Golpe> golpes = saga.getGolpes();
+        assertEquals(outraDimensao, golpes.get(0));
+        assertEquals(explosaoGalatica, golpes.get(1));
+        assertEquals(sataImperial, golpes.get(2));
+        assertEquals(rasteira, golpes.get(3));
     }
 
     @Test
