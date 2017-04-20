@@ -143,5 +143,22 @@ public class ListaSaints {
             this.ordenar();
         }
     }
+
+    public ArrayList<String> getCSV1(){
+        ////"June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false
+        ArrayList<String> csv = new ArrayList<String>();
+        String  cav = "";
+        if(listaSaints.isEmpty()){
+            return null;
+        } else {
+            for(Saint saint : listaSaints){
+                cav +=  saint.getNome() + "," + saint.getVida() + "," + /*saint.getArmadura().getConstelacao() +  ","+ */saint.getArmadura().getCategoria() + "," + 
+                saint.getStatus() + "," + saint.getGenero() + "," + saint.getArmaduraVestida();
+                csv.add(cav); 
+            }       
+        }
+        return csv;
+    }
 }
+
 

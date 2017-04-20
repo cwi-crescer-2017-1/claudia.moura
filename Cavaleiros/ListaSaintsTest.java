@@ -265,11 +265,10 @@ public class ListaSaintsTest {
 
         june.perderVida(20);
         saga.perderVida(50);
-        
+
         listaSaints.adicionar(marin);
         listaSaints.adicionar(saga);
         listaSaints.adicionar(june); 
-
 
         listaSaints.ordenar(TipoOrdenacao.DESCENDENTE); 
         ArrayList<Saint> resultado = listaSaints.todos(); 
@@ -277,6 +276,24 @@ public class ListaSaintsTest {
         assertEquals(june, resultado.get(1)); 
         assertEquals(marin, resultado.get(0)); 
     } 
-    
-    
+    /*
+    @Test
+    public void getCSVTestandoComDoisSaints()throws Exception{
+        ListaSaints lista = new ListaSaints();
+        Saint june = new Saint("June", new Armadura(new Constelacao("Camaleão"), Categoria.BRONZE));
+        june.setGenero(Genero.FEMININO);
+        june.perderVida(15.5);
+        lista.adicionar(june);
+
+        Saint dohko = new Saint("Dohko", new Armadura(new Constelacao(""), Categoria.OURO));
+        dohko.perderVida(90);
+        dohko.vestirArmadura();
+        lista.adicionar(dohko);
+        
+        
+        String csv = lista.getCSV();
+        assertEquals("June,84.5,BRONZE,VIVO,FEMININO,false, \nDohko,10.0,OURO,VIVO,NAO_INFORMADO,true",csv);
+        
+
+    }*/
 } 
