@@ -144,21 +144,23 @@ public class ListaSaints {
         }
     }
 
-    public ArrayList<String> getCSV1(){
-        ////"June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false
-        ArrayList<String> csv = new ArrayList<String>();
-        String  cav = "";
-        if(listaSaints.isEmpty()){
-            return null;
-        } else {
-            for(Saint saint : listaSaints){
-                cav +=  saint.getNome() + "," + saint.getVida() + "," + /*saint.getArmadura().getConstelacao() +  ","+ */saint.getArmadura().getCategoria() + "," + 
-                saint.getStatus() + "," + saint.getGenero() + "," + saint.getArmaduraVestida();
-                csv.add(cav); 
-            }       
+    public String getCSV() {
+        if (this.listaSaints.isEmpty()) {
+            return "";
         }
-        return csv;
-    }
-}
 
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder(512);
+
+        builder.append(this.listaSaints.get(0).getCSV());
+        for (int i = 1; i < this.listaSaints.size(); i++) {
+            Saint saint = this.listaSaints.get(i);
+            builder.append(separador);
+            builder.append(saint.getCSV());
+        }
+
+        return builder.toString();
+    }
+
+}
 
