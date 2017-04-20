@@ -106,14 +106,15 @@ public class ListaSaints {
 
         boolean posicoesSendoTrocadas = false;
         do {
+            posicoesSendoTrocadas = false;
             for (int i = 0; i< this.listaSaints.size() - 1; i++){
                 Saint atual = this.listaSaints.get(i);
                 Saint proximo = this.listaSaints.get(i+ 1);
                 boolean precisaTrocar = atual.getVida() > proximo.getVida();
                 if(precisaTrocar){
-                    Saint troca = atual;
+
                     this.listaSaints.set(i, proximo);
-                    this.listaSaints.set(i + 1, troca);
+                    this.listaSaints.set(i + 1, atual);
                     posicoesSendoTrocadas = true;
                 }
             }
@@ -125,37 +126,22 @@ public class ListaSaints {
         if (tipo.DESCENDENTE.equals(tipo)) {
             boolean posicoesSendoTrocadas = false;
             do {
+                posicoesSendoTrocadas = false;
                 for (int i = 0; i< this.listaSaints.size() - 1; i++){
                     Saint atual = this.listaSaints.get(i);
-                    Saint proximo = this.listaSaints.get(i+ 1);
+                    Saint proximo = this.listaSaints.get(i + 1);
                     boolean precisaTrocar = atual.getVida() < proximo.getVida();
                     if(precisaTrocar){
-                        Saint troca = atual;
                         this.listaSaints.set(i, proximo);
-                        this.listaSaints.set(i + 1, troca);
+                        this.listaSaints.set(i + 1, atual);
                         posicoesSendoTrocadas = true;
                     }
                 }
             } while (posicoesSendoTrocadas);
 
-        }else{
-            boolean posicoesSendoTrocadas = false;
-        do {
-            for (int i = 0; i< this.listaSaints.size() - 1; i++){
-                Saint atual = this.listaSaints.get(i);
-                Saint proximo = this.listaSaints.get(i+ 1);
-                boolean precisaTrocar = atual.getVida() > proximo.getVida();
-                if(precisaTrocar){
-                    Saint troca = atual;
-                    this.listaSaints.set(i, proximo);
-                    this.listaSaints.set(i + 1, troca);
-                    posicoesSendoTrocadas = true;
-                }
-            }
-        } while (posicoesSendoTrocadas);
-            //this.listaSaints.ordenar();
+        }else{           
+            this.ordenar();
         }
-
     }
 }
 
