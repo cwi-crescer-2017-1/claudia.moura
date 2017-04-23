@@ -294,7 +294,7 @@ public class ListaSaintsTest {
         String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, lista.getCSV());
     }
-    
+    /*
     @Test
     public void getCSVComApenasDoisSaints() throws Exception {
         ListaSaints lista = new ListaSaints();
@@ -309,6 +309,5 @@ public class ListaSaintsTest {
         String esperado = "June,84.5,,BRONZE,VIVO,FEMININO,false\nDohko,10.0,Libra,OURO,VIVO,NAO_INFORMADO,true";
         assertEquals(esperado, lista.getCSV());
 
-
-}
+    }*/
 }
