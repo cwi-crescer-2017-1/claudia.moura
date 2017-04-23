@@ -15,8 +15,8 @@ public class BatalhaTest
 {
     @Test
     public void casoCavaleirosIguaisSegundoPerdeVidaEPrimeiroMantem()  throws Exception {
-        Saint saga = new GoldSaint("Saga", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
-        Saint mm = new GoldSaint("Máscara da Morte", new Armadura(new Constelacao("Gêmeos"), Categoria.OURO));
+        Saint saga = new GoldSaint("Saga", "Gêmeos");
+        Saint mm = new GoldSaint("Máscara da Morte", "Gêmeos");
                 
         Batalha batalha = new Batalha(saga, mm);
         batalha.iniciarBatalha();
@@ -27,8 +27,8 @@ public class BatalhaTest
     
     @Test
     public void casoCavaleirosDiferentesCategoriaMenorPerdeVidaEMaiorMantem()  throws Exception{
-        Saint shiryu = new BronzeSaint("Shiryu", new Armadura(new Constelacao("Dragão"), Categoria.BRONZE));
-        Saint shura = new GoldSaint("Shura", new Armadura(new Constelacao("Capricórnio"), Categoria.OURO));
+        Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
+        Saint shura = new GoldSaint("Shura", "Capricórnio");
         
         Batalha batalha = new Batalha(shiryu, shura);
         batalha.iniciarBatalha();
