@@ -155,12 +155,14 @@ public class ListaSaints {
         builder.append(this.listaSaints.get(0).getCSV());
         for (int i = 1; i < this.listaSaints.size(); i++) {
             Saint saint = this.listaSaints.get(i);
+            //resultado += separador + saint.getCSV();
+            //builder.append(String.format("%s%s", separador, saint.getCSV()));
             builder.append(separador);
             builder.append(saint.getCSV());
         }
 
         return builder.toString();
     }
-
 }
+
 
