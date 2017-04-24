@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -18,7 +17,6 @@ public class GolpearTest
         golpe.executar();
 
         assertEquals(90, aioria.getVida(), 0);
-
     }
     
     @Test
@@ -50,6 +48,5 @@ public class GolpearTest
         golpe.executar();
 
         assertEquals(40, aioria.getVida(), 0);
-
     }
 }

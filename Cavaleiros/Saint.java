@@ -10,7 +10,8 @@ public abstract class Saint
     private Status status = Status.VIVO;
     private double vida = 100.0;
     protected int qtdSentidosDespertados;
-    private int acumuladorProximoGolpe = 0;
+    private int acumuladorProximoDaLista = 0;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
 
     public Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;  
@@ -81,12 +82,30 @@ public abstract class Saint
 
     public Golpe getProximoGolpe(){
         ArrayList<Golpe> golpes = getGolpes();
-        int posicao = this.acumuladorProximoGolpe % golpes.size();
-        this.acumuladorProximoGolpe++;
+        if (golpes.isEmpty()){
+            return null;
+        }
+        int posicao = this.acumuladorProximoDaLista % golpes.size();
+        this.acumuladorProximoDaLista++;
         return golpes.get(posicao);
     }
 
-    public String getCSV() {
+    //Adiciona o movimento na lista de movimentos
+    public void adicionarMovimento(Movimento movimentos){
+        this.movimentos.add(movimentos);
+    }
+
+    //Obtém o próximo movimento a ser executado sempre de maneira circular, similar à lógica de getProximoGolpe.
+    public Movimento getProximoMovimento(){
+        if (movimentos.isEmpty()){
+            return null;
+        }
+        int posicao = this.acumuladorProximoDaLista % movimentos.size();
+        this.acumuladorProximoDaLista++;
+        return movimentos.get(posicao);
+    } 
+
+    public String getCSV() {    
 
         // Interpolação de Strings: return `${nome},${vida},${status}`;
         return String.format(

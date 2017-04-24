@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-   
+
 public class SaintTest {
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
@@ -53,41 +53,29 @@ public class SaintTest {
 
     @Test
     public void perderDanoComValor10() throws Exception {
-        // Arrange
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
-        // Act
         shiryu.perderVida(10);
-        // Assert
         assertEquals(90, shiryu.getVida(), 0.01);
     }
 
     @Test
     public void perderDanoComValor100() throws Exception {
-        // Arrange
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
-        // Act
         shiryu.perderVida(100);
-        // Assert
         assertEquals(0, shiryu.getVida(), 0.01);
     }
 
     @Test
     public void perderDanoComValor1000() throws Exception {
-        // Arrange
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
-        // Act
         shiryu.perderVida(1000);
-        // Assert
         assertEquals(0, shiryu.getVida(), 0.01);
     }
 
     @Test(expected=InvalidParameterException.class)
     public void perderDanoComValorMenos1000() throws Exception {
-        // Arrange
         Saint shiryu = new BronzeSaint("Shiryu", "Dragão");
-        // Act
         shiryu.perderVida(-1000);
-        // Assert
         assertEquals(1100, shiryu.getVida(), 0.01);
     }
 
@@ -236,7 +224,7 @@ public class SaintTest {
         String esperado = "June,84.5,Camaleão,BRONZE,VIVO,FEMININO,false";
         assertEquals(esperado, june.getCSV());
     }
-    
+
     @Test
     public void getCSVComNomeNulo() throws Exception {
         Saint june = new BronzeSaint(null, "Camaleão");
@@ -246,4 +234,33 @@ public class SaintTest {
         assertEquals(esperado, june.getCSV());
     }
 
+    @Test 
+    public void adicionarMovimento() throws Exception{
+        Saint june = new BronzeSaint("June", "Camaleão"); 
+        Movimento vestirArmadura = new VestirArmadura(june);              
+        june.adicionarMovimento(vestirArmadura);              
+        assertEquals(vestirArmadura, june.getProximoMovimento());    
+    }
+
+    @Test
+    public void adicionarMaisDeUmmMovimento() throws Exception{
+        Saint june = new BronzeSaint("June", "Camaleão"); 
+        Movimento vestirArmadura = new VestirArmadura(june);              
+        Movimento vestirArmadura2 = new VestirArmadura(june);  
+        Movimento vestirArmadura3 = new VestirArmadura(june);  
+        
+        june.adicionarMovimento(vestirArmadura);    
+        june.adicionarMovimento(vestirArmadura2);              
+        june.adicionarMovimento(vestirArmadura3);        
+        
+        assertEquals(vestirArmadura, june.getProximoMovimento());    
+        assertEquals(vestirArmadura2, june.getProximoMovimento());
+        assertEquals(vestirArmadura3, june.getProximoMovimento());
+    }
+    
+    @Test
+    public void proximoMovimentoComListaVazia() throws Exception{
+        Saint june = new BronzeSaint("June", "Camaleão");        
+        assertEquals(null,  june.getProximoMovimento());    
+    }
 }
