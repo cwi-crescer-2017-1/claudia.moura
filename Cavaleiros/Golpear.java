@@ -13,7 +13,7 @@ public class Golpear implements Movimento{
     } 
 
     public void executar(){
-        if(this.golpeador.getArmaduraVestida() == true){
+        if(this.golpeador.getArmaduraVestida()){
             fatorDano *= (1 + golpeador.getArmadura().getCategoria().getValor());        
         }
          this.golpeado.perderVida(fatorDano);
