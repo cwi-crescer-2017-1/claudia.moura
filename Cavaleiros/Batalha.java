@@ -13,10 +13,10 @@ public class Batalha {
         }
 
         do {
-            if( contadorBatalha % 2 == 0 ){
+            if((contadorBatalha % 2 == 0) && (saint1.getVida () > 0)){// saints não atacam
                 //saint1 ataca
                 saint1.getProximoMovimento().executar();
-            } else {
+            } else if ((contadorBatalha % 2 != 0) && (saint2.getVida () > 0) && (saint1.getVida () > 0)){ 
                 //saint2 ataca
                 saint2.getProximoMovimento().executar();
             }
