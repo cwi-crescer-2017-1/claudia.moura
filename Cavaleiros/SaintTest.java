@@ -248,19 +248,45 @@ public class SaintTest {
         Movimento vestirArmadura = new VestirArmadura(june);              
         Movimento vestirArmadura2 = new VestirArmadura(june);  
         Movimento vestirArmadura3 = new VestirArmadura(june);  
-        
+
         june.adicionarMovimento(vestirArmadura);    
         june.adicionarMovimento(vestirArmadura2);              
         june.adicionarMovimento(vestirArmadura3);        
-        
+
         assertEquals(vestirArmadura, june.getProximoMovimento());    
         assertEquals(vestirArmadura2, june.getProximoMovimento());
         assertEquals(vestirArmadura3, june.getProximoMovimento());
     }
-    
+
     @Test
     public void proximoMovimentoComListaVazia() throws Exception{
         Saint june = new BronzeSaint("June", "Camaleão");        
         assertEquals(null,  june.getProximoMovimento());    
+    }
+
+    @Test
+    public void verificarIdCorreta()throws Exception{
+
+        Saint seiya = new BronzeSaint("Seiya","Pégasus");
+        assertEquals(Saint.getQtdSaints(), seiya.getId());
+
+        Saint shiryu = new BronzeSaint("Shiryu","Dragão");
+        assertEquals(Saint.getQtdSaints(), shiryu.getId());
+
+        Saint shun = new BronzeSaint("Shun","Andrômeda");
+        assertEquals(Saint.getQtdSaints(), shun.getId());
+    }
+    
+    @Test
+    public void verificarListaDeSaints()throws Exception{
+        int qtd = Saint.getQtdSaints();
+        Saint seiya = new BronzeSaint("Seiya","Pégasus");
+        Saint shiryu = new BronzeSaint("Shiryu","Dragão");
+        Saint shun = new BronzeSaint("Shun","Andrômeda");
+        
+        Saint ikki = new BronzeSaint("Ikki", "Fênix");
+        Saint hyoga = new BronzeSaint("Cisne", "Gelo");
+        
+        assertEquals(qtd + 5, Saint.getQtdSaints());
     }
 }

@@ -12,11 +12,22 @@ public abstract class Saint
     protected int qtdSentidosDespertados;
     private int acumuladorProximoDaLista = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
+    private static int qtdSaints = 0;
+    private int id = 0;
 
     protected Saint(String nome, Armadura armadura) throws Exception{
         this.nome = nome;  
         this.armadura = armadura;
+        Saint.qtdSaints++;
+        id = Saint.qtdSaints;
+    }
 
+    public static int getQtdSaints() {
+        return Saint.qtdSaints;
+    }
+    
+    public int getId(){
+        return this.id;
     }
 
     public void vestirArmadura(){
