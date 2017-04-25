@@ -21,19 +21,19 @@ public abstract class Saint
         this.id = ++Saint.acumuladorQtdSaints;
         Saint.qtdSaints++;
     }
-    
-        protected void finalize() throws Throwable{
+
+    protected void finalize() throws Throwable{
         Saint.qtdSaints--;
     }
 
     public static int getQtdSaints() {
         return Saint.qtdSaints;
     }
-    
+
     public static int getAcumuladorQtdSaints() {
         return Saint.acumuladorQtdSaints;
     }
-    
+
     public int getId(){
         return this.id;
     }
@@ -138,5 +138,4 @@ public abstract class Saint
             this.armaduraVestida
         );
     }
-
 }

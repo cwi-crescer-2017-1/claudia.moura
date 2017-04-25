@@ -17,6 +17,5 @@ public class Golpear implements Movimento{
             fatorDano *= (1 + golpeador.getArmadura().getCategoria().getValor());        
         }
          this.golpeado.perderVida(fatorDano);
-
     }
 }

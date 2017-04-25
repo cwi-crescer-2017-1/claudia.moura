@@ -18,7 +18,6 @@ public class Constelacao {
     
     public void adicionarGolpe(Golpe golpe) {
         this.golpes.add(golpe);
-    }
-    
+    }    
 }
     

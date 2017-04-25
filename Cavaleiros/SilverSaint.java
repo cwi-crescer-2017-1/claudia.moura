@@ -4,5 +4,4 @@ public class SilverSaint extends Saint {
         super(nome, new Armadura(new Constelacao(constelacao), Categoria.PRATA));
         this.qtdSentidosDespertados = 6;
     }   
-
 }
