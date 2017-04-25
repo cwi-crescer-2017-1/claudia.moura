@@ -6,6 +6,12 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
 public class SaintTest {
+    
+    @After
+    public void tearDown(){
+        System.gc();
+    }
+    
     @Test
     public void vestirArmaduraDeixaArmaduraVestida() throws Exception {
         // AAA
@@ -266,27 +272,26 @@ public class SaintTest {
 
     @Test
     public void verificarIdCorreta()throws Exception{
-
+        int qtd = Saint.getAcumuladorQtdSaints();
         Saint seiya = new BronzeSaint("Seiya","Pégasus");
-        assertEquals(Saint.getQtdSaints(), seiya.getId());
+        assertEquals(qtd + 1, seiya.getId());
 
         Saint shiryu = new BronzeSaint("Shiryu","Dragão");
-        assertEquals(Saint.getQtdSaints(), shiryu.getId());
+        assertEquals(qtd + 2, shiryu.getId());
 
         Saint shun = new BronzeSaint("Shun","Andrômeda");
-        assertEquals(Saint.getQtdSaints(), shun.getId());
+        assertEquals(qtd + 3, shun.getId());
     }
     
     @Test
     public void verificarListaDeSaints()throws Exception{
-        int qtd = Saint.getQtdSaints();
         Saint seiya = new BronzeSaint("Seiya","Pégasus");
         Saint shiryu = new BronzeSaint("Shiryu","Dragão");
         Saint shun = new BronzeSaint("Shun","Andrômeda");
+        assertEquals(3, Saint.getQtdSaints());
         
         Saint ikki = new BronzeSaint("Ikki", "Fênix");
-        Saint hyoga = new BronzeSaint("Cisne", "Gelo");
-        
-        assertEquals(qtd + 5, Saint.getQtdSaints());
+        Saint hyoga = new BronzeSaint("Cisne", "Gelo");        
+        assertEquals(5, Saint.getQtdSaints());
     }
 }
