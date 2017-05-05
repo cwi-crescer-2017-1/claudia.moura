@@ -1,0 +1,64 @@
+body {
+  background-color: powderblue;
+  margin: 0px;
+}
+
+h1 {
+  color:#44a6ff;
+  text-align:center;
+  background-color: #44569f;
+  margin: 0px;
+  /*position: fixed;*/
+}
+
+mark{
+  background-color: #44569f;
+  padding:5px;
+  color: white;
+}
+
+p {
+    text-align: justify;
+    padding: 0px 20px 0px 20px;
+    font-family: sans-serif;
+    margin-top:10px;
+    text-indent: 20px;
+}
+
+h1 + div + p {
+  margin-top:50px;
+}
+
+.alinhamento-direita{
+   text-align:right;
+}
+
+p small {
+  font-size:7px;
+}
+
+strong {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+ins {
+  background-color: #44569f;
+  font-size: 18px;
+  padding: 0px 10px 0px 10px;
+  text-decoration:none;
+  color: lightblue;
+  font-family:sans-serif;
+}
+
+a {
+  color:black;
+  background-color: #44AAFF;
+  text-decoration:none;
+}
+
+a:hover{
+  color:lightblue;
+  background-color:greed;
+  text-decoration:none;
+}
