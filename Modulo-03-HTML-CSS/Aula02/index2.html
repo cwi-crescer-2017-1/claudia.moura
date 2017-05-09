@@ -1,3 +1,4 @@
+<!--codepen: https://codepen.io/ClaudiaStrm/pen/qmpPXe-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,11 +6,11 @@
     <title>Noticias</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <style>
-
-    body {
+   body {
       margin: 0;
       background-color: #fafafa;
       font-family: 'Open Sans', sans-serif;
+ 
     }
     .topo {
       background-color: #c4170c;
@@ -19,19 +20,21 @@
       font-weight: 800;
       font-size: 25px;
       padding: 20px;
+      margin-bottom:5%;
     }
     .coluna {
       box-sizing: border-box;
       background-color: white;
       width: 40%;
-      float: left;
+      float: right;
       border: 1px solid lightgrey;
       border-radius: 5px;
-      margin: 4%;
+      margin: 1%;
       padding: 20px;
-
     }
-
+    .coluna-direita{
+      margin-right: 10%;
+    }
     .titulo{
       color: #c4170c;
       text-align: center;
@@ -41,22 +44,47 @@
     .texto{
       line-height: 25px;
       font-size: 16px;
+      color: #333;
     }
-
-    p.primeiro::first-letter{
-      font-size: 44px;
-      color: #c4170c;
-      float: left;
-      margin-right: 10px;
-      line-height: 1;
+     p.primeiro::first-letter{
+       font-size: 50px;
+       color: #c4170c;
+       float: left;
+       margin-right: 6px;
+       padding-top:5px;
     }
-
+    .subtitulo {
+      color: #bbb;
+      text-align: right;
+    }
+    blockquote {
+      position: relative;
+      width: 80%;
+      font-size: 20px;
+      line-height: 24px;
+      padding-left: 7%;
+      color: #bbb;
+    }
+    #johnny{
+      width:168px;
+      float:right; 
+      padding-top:8px;
+      margin: 4px; 
+    }
+    .horario {
+      color: #bbb;
+      text-align: right;
+    }
     </style>
   </head>
   <body>
-    <div class="topo">PORTAL CRESCER</div>
-    <div class="coluna coluna01">
+<div class="topo">PORTAL CRESCER</div>
+    <div class="coluna coluna-direita">
       <div class="titulo">All work and no play makes Jack a dull boy.</div>
+     
+            <div class="subtitulo">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.</div>
+      <img src="https://conteudo.imguol.com.br/2012/10/29/cena-de-o-iluminado-de-stanley-kubrick-1351530293839_300x420.jpg" alt="Here's Johnny" id="johnny" title="Here's Johnny!!">
+
       <p class="texto primeiro">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.</p>
       <p class="texto">  All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
@@ -73,11 +101,11 @@
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
       </p>
-      <span class="horario">DULL BOY</span>
+      <div class="horario">DULL BOY</div>
     </div>
-    <div class="coluna coluna02">
+    <div class="coluna">
       <div class="titulo">All work and no play makes Jack a dull boy.</div>
-      <span class="subtitulo">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.</span>
+      
       <p class="texto primeiro">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
@@ -93,29 +121,18 @@
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
+       All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
       </p>
       <p class="texto">     All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-      </p class="texto">
+      </p>
         <blockquote>
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
+        All work and no play makes Jack a dull boy.   
       </blockquote>
-        All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
+        <p class="texto">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
@@ -127,16 +144,15 @@
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
       </p>
-      <span class="horario">DULL BOY</span>
+      <div class="horario">DULL BOY</div>
     </div>
-    <div class="coluna coluna03">
+    <div class="coluna coluna-direita">
       <div class="titulo">All work and no play makes Jack a dull boy.</div>
-      <p class="texto">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
+      <p class="texto primeiro">All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
         All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.
       </p>
-      <span class="horario">DULL BOY</span>
-    </div>
-
+      <div class="horario">DULL BOY</div>
+</div>
   </body>
 </html>
