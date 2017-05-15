@@ -76,7 +76,7 @@ console.log(mascadaEmSerie(series, 4)); //retorna 1300000
 
 function queroGenero(genero){
 	var seriePorGenero = []
-	for(i = 0; i < series.length; i++){
+	for(let i = 0; i < series.length; i++){
 		if (series[i].genero.includes(genero)){
 			seriePorGenero.push(series[i].titulo)
 		}
@@ -88,8 +88,8 @@ console.log(queroGenero("Caos")); // Retorna ["Bernardo The Master of the Wizard
 
 
 function queroTitulo(titulo){
-	var seriePorTitulo = []
-	for(i = 0; i < series.length; i++){
+	let seriePorTitulo = []
+	for(let i = 0; i < series.length; i++){
 		if (series[i].titulo.includes(titulo)){
 			seriePorTitulo.push(series[i].titulo)
 		}
@@ -98,4 +98,42 @@ function queroTitulo(titulo){
 }
 
 
-console.log(queroTitulo("The")) // Retorna ["The Walking Dead", "Bernardo The Master of the Wizards"]
+console.log(queroTitulo("The")); // Retorna ["The Walking Dead", "Bernardo The Master of the Wizards"]
+
+/*
+
+//exercicio08
+
+function elencoAbreviado(series){
+	let contador = 0;
+
+	for (let i = 0; i < series.length; i++){
+		let variavel = '';
+		for (let j = 0; j < series.length; j++){			
+			variavel += series[i].elenco[j];
+			if (variavel.includes(".")){
+				contador += 1;
+			}
+			if (contador === series[i].elenco.length){
+				return true;
+			}
+		}
+	}
+	return contador;
+}
+
+
+function abreviacao(series){
+	let palavra = '';
+	let index = 0;
+	for (let i = 0; i < series.length; i++){
+		for (let j = 0; j < series.length; j++)
+		if (series[i].elenco[j].includes('.')){
+			index = str.search(".");
+			palavra += series[i].elenco.substr(index-2, index-1)
+		}
+	}
+	return palavra;
+}
+
+*/
