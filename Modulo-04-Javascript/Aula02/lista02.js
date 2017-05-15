@@ -17,7 +17,7 @@ function seriesInvalidas(series) {
   return seriesInvalidas.substr(0, (seriesInvalidas.length - 2));
 }
 
-console.log(seriesInvalidas(series)) //deve retornar Mr Robot, Band of Brothers, Narcos
+console.log(seriesInvalidas(series)) //retorna Mr Robot, Band of Brothers, Narcos
 
 
 //Exercicio02
@@ -32,8 +32,8 @@ function filtrarSeriesPorAno(series, ano){
 	return seriesPorAno.substr(0, (seriesPorAno.length - 2));
 }
 
-console.log(filtrarSeriesPorAno(series, 2012)) //deve retornar array vazio
-console.log(filtrarSeriesPorAno(series, 2010)) // deve retornar Walking Dead, 10 Days Why
+console.log(filtrarSeriesPorAno(series, 2012)) //retorna array vazio
+console.log(filtrarSeriesPorAno(series, 2010)) // retorna Walking Dead, 10 Days Why
 
 
 //Exercicio03
@@ -50,5 +50,52 @@ console.log(mediaDeEpisodios(series)) //deve retornar 34.1
 
 //Exercicio04
 
+function procurarPorNome(series, nome){
+for (let i = 0; i < series.length; i++){
+	for (let j = 0; j < series[i].elenco.length; j++){
+		if (series[i].elenco[j].includes(nome)) {
+			return true
+		}
+ 	}
+  }
+  return false;
+}
+console.log(procurarPorNome(series, "Claudia")); //retorna true
+console.log(procurarPorNome(series, "Cláudia")); //retorna false
+
+//Exercicio05
+function mascadaEmSerie(series, index){
+	var totalDiretor = series[index].diretor.length * 100000;
+	var totalElenco = series[index].elenco.length * 40000;
+	return totalDiretor + totalElenco;
+}
+
+console.log(mascadaEmSerie(series, 4)); //retorna 1300000
+
+//Exercicio06
+
+function queroGenero(genero){
+	var seriePorGenero = []
+	for(i = 0; i < series.length; i++){
+		if (series[i].genero.includes(genero)){
+			seriePorGenero.push(series[i].titulo)
+		}
+	}
+	return seriePorGenero;
+}
+
+console.log(queroGenero("Caos")); // Retorna ["Bernardo The Master of the Wizards", "10 Days Why"]
 
 
+function queroTitulo(titulo){
+	var seriePorTitulo = []
+	for(i = 0; i < series.length; i++){
+		if (series[i].titulo.includes(titulo)){
+			seriePorTitulo.push(series[i].titulo)
+		}
+	}
+	return seriePorTitulo;
+}
+
+
+console.log(queroTitulo("The")) // Retorna ["The Walking Dead", "Bernardo The Master of the Wizards"]
