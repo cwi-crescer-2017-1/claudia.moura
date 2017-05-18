@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="data.js"></script>
+  </head>
+
+  <body ng-app="angularjs">
+    <div ng-controller="data">
+
+      <label for="dataDigitada">Insira a data: </label>
+      <input type="date" placeholder="01/01/2001" ng-model="dataDigitada">
+      <button ng-click="converter()">Converter!</button>
+      <span>{{ dataDigitada | date:'mediumDate'}}</span>
+
+      <span>{{ dataPronta }}</span>
+
+    </div>
+
+
+    </div>
+  </body>
+</html>
