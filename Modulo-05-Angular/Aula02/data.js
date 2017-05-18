@@ -2,12 +2,13 @@ var modulo = angular.module("angularjs", []);
 modulo.controller("data", function($scope, $filter) {
 
   $scope.converter = converter;
-  $scope.dataDigitada = null;
 
-  $scope.clickMe = function(clickEvent) {
-    $scope.clickEvent = simpleKeys(clickEvent);
-    console.log(clickEvent);
-  };
+
+    function converter() {
+
+      if (angular.isUndefined($scope.dataDigitada)) {
+        return;
+      }
 
   function converter() {
 

@@ -11,8 +11,8 @@
     <div ng-controller="data">
 
       <label for="dataDigitada">Insira a data: </label>
-      <input type="date" placeholder="01/01/2001" ng-model="dataDigitada">
-      <button ng-click="converter()">Converter!</button>
+      <input type="date" placeholder="Ex.: 01/01/2001" ng-model="dataDigitada" required>
+      <button ng-click="converter()">Clique</button>
       <span>{{ dataDigitada | date:'mediumDate'}}</span>
 
       <span>{{ dataPronta }}</span>
