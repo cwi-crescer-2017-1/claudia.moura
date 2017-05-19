@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulários</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="form.js"></script>
+  </head>
+  <body ng-app="angularjs">
+
+    <div class="container" ng-controller="MainController">
+      <h2>Lista de Instrutores</h2>
+      <ul>
+        <li ng-repeat="instrutor in instrutores">{{ item }}</li>
+      </ul>
+
+      <h3>Adicionar instrutor</h3>
+
+      <form name="form" method="post">
+        <label for="nome">Nome:</label><br>
+        <input required=""  type="text" name="nome" minlength ="3" maxlength="20" ng-model="novoNome"><br>
+
+        <label for="nome">Sobrenome:</label><br>
+        <input type="text" name="sobrenome" ng-model="novoSobrenome"><br>
+
+        <label for="nome">Idade:</label><br>
+        <input required=""  type="number" name="idade" ng-model="novaIdade"><br>
+
+        <label for="nome">Email:</label><br>
+        <input required=""  type="email" name="email" ng-model="novoEmail"><br>
+
+        <label for="aulaTrue">
+        <input type="checkbox" ng-model="user.agree" name="userAgree">
+          Já deu aula
+       </label><br>
+
+        <label for="nome">Qual aula ministra:</label><br>
+        <select ng-model="selectAula" name="aula" ng-options="aula for aula in aulas">
+        </select><br>
+
+        <button ng-click="incluirNome(novoNome)" type="submit" name="button">Incluir</button>
+      </form>
+  </div>
+  </body>
+</html>
