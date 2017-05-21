@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Formulários</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="form.js"></script>
   </head>
@@ -10,35 +11,106 @@
 
     <div class="container" ng-controller="MainController">
       <h2>Lista de Instrutores</h2>
-      <ul>
-        <li ng-repeat="instrutor in instrutores">{{ item }}</li>
-      </ul>
+
+      <table class="table table-striped">
+        <tr>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Email</th>
+          <th>Já deu aula</th>
+          <th>Aula</th>
+        </tr>
+
+        <tr ng-repeat="instrutor in instrutores">
+          <td>{{ instrutor.nome }} {{ instrutor.sobrenome }}</td>
+          <td>{{ instrutor.idade }}</td>
+          <td>{{ instrutor.email }}</td>
+          <td>{{ instrutor.jaDeuAula }}</td>
+          <td>{{ instrutor.aula }}</td>
+        </tr>
+      </table>
+
+      <hr>
 
       <h3>Adicionar instrutor</h3>
 
-      <form name="form" method="post">
-        <label for="nome">Nome:</label><br>
-        <input required=""  type="text" name="nome" minlength ="3" maxlength="20" ng-model="novoNome"><br>
+      <form class="form-horizontal" name="form" novalidate>
 
-        <label for="nome">Sobrenome:</label><br>
-        <input type="text" name="sobrenome" ng-model="novoSobrenome"><br>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="nome">Nome:</label>
+          <div class="col-sm-9  ">
+            <input type="text" class="form-control" name="nome" ng-minlength ="3" ng-maxlength="20" ng-model="novoInstrutor.nome" required>
+            <span ng-show="form.$submitted || form.nome.$touched">
+              <div  class="alert alert-danger" ng-show="form.nome.$error.required">
+                Campo Obrigatório
+              </div>
+              <div  class="alert alert-danger" ng-show="form.nome.$error.minlength">
+                O nome deve ter no mínimo 3 caracteres.
+              </div>
+              <div  class="alert alert-danger" ng-show="form.nome.$error.maxlength">
+                O nome deve ter no máximo 20 caracteres.
+              </div>
+            </span> 
+          </div>       
+        </div>
 
-        <label for="nome">Idade:</label><br>
-        <input required=""  type="number" name="idade" ng-model="novaIdade"><br>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="sobrenome">Sobrenome:</label>
+          <div class="col-sm-9  ">
+            <input type="text" class="form-control" name="sobrenome" ng-minlength ="2" ng-maxlength="30" ng-model="novoInstrutor.sobrenome">
+            <span ng-show="form.$submitted || form.sobrenome.$touched">
+              <div class="alert alert-danger" ng-show="form.sobrenome.$error.minlength">
+                O sobrenome deve ter no mínimo 2 caracteres.
+              </div>
+              <div class="alert alert-danger" ng-show="form.sobrenome.$error.maxlength">
+                O sobrenome deve ter no máximo 30 caracteres.
+              </div>
+            </span>
+          </div>
+        </div>
 
-        <label for="nome">Email:</label><br>
-        <input required=""  type="email" name="email" ng-model="novoEmail"><br>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="idade">Idade:</label>
+          <div class="col-sm-9  ">
+            <input type="number" class="form-control" name="idade" ng-model="novoInstrutor.idade" required>
+          </div>
+        </div>
 
-        <label for="aulaTrue">
-        <input type="checkbox" ng-model="user.agree" name="userAgree">
-          Já deu aula
-       </label><br>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="email">Email:</label>
+          <div class="col-sm-9  ">
+            <input type="email" class="form-control" name="email" ng-model="novoInstrutor.email" required>
+            <span ng-show="form.$submitted || form.email.$touched">
+              <div  class="alert alert-danger" ng-show="form.email.$error.required">Informe o Email.</div>
+              <div  class="alert alert-danger" ng-show="form.email.$error.email">Esse email não é válido</div>
+            </span>
+          </div>
+        </div>
 
-        <label for="nome">Qual aula ministra:</label><br>
-        <select ng-model="selectAula" name="aula" ng-options="aula for aula in aulas">
-        </select><br>
+        <div class="form-group"> 
+          <div class="col-sm-offset-3 col-sm-8 col-sm-offset- ">
+            <div class="checkbox">
+              <label><input type="checkbox" ng-model="novoInstrutor.jaDeuAula" name="jaDeuAula">Já deu aula</label>
+            </div>
+          </div>
+        </div>
 
-        <button ng-click="incluirNome(novoNome)" type="submit" name="button">Incluir</button>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="aula">Qual aula ministra:</label>
+          <div class="col-sm-9">
+            <select class="form-control" ng-model="novoInstrutor.aula" name="aula" ng-options="aula for aula in aulas" required> </select>
+            <span ng-show="form.$submitted || form.aula.$touched">
+              <div  class="alert alert-danger" ng-show="form.aula.$error.required">Campo obrigatório.
+              </div>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-9  ">
+            <button type="submit" class="btn btn-primary" ng-click="adicionarInstrutor()">Inserir</button>
+          </div>
+        </div>
       </form>
   </div>
   </body>
