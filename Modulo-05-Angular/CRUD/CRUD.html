@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CRUD</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="CRUD.js"></script>
+        <!--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="CRUD.css">-->
+</head>
+<body ng-app="angularjs">
+	<div ng-controller="controller">
+		<div class="container col-sm-offset-2 col-sm-8">
+			<div class="row"></div>
+				<h2>Lista de aulas</h2>
+				<table class="table table-striped">
+					<thead>
+						<th>ID</th>
+						<th>Nome da Aula</th>
+						<th>Aula em andamento</th>
+					</thead>
+					<tr ng-repeat="aula in aulas | orderBy:'nome'">
+						<td>
+							{{ aula.id }}
+						</td>
+						<td>
+							{{ aula.nome }}
+						</td>
+						<td>
+							{{ aula.emAndamento }}
+						</td>
+					</tr>
+				</table>
+
+				<hr>
+
+				<h3>Adicionar nova aula</h3>
+				<form class="form-horizontal" name="formAdicionar" novalidate>        
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
+					  <div class="col-sm-4">
+					    <input type="text" class="form-control" name="nomeAula" ng-model="novaAula" required>
+					      <span ng-show="formAdicionar.$submitted || formAdicionar.nomeAula.$touched">
+					        <div class="alert alert-danger" ng-show="formAdicionar.nomeAula.$error.required">
+					          Campo Obrigatório
+					        </div><!-- alert-danger -->
+					      </span> 
+					  </div> <!-- col-sm-4--> 
+
+	          <div class="col-sm-3">
+	            <div class="checkbox">
+	              <label><input type="checkbox" ng-model="aulaEmAndamento" name="emAndamento">Aula em andamento</label>
+	            </div><!--col-sm-3 -->
+	          </div>
+		        <div class="col-sm-1">
+            	<button type="submit" class="btn btn-primary" ng-click="adicionarAula()">Inserir nova aula</button>
+          	</div> <!--col-sm-1 -->   
+	        </div><!--form-group-->
+				</form>
+				<hr>
+				<h3>Alterar aula</h3>
+				<form class="form-horizontal" name="formAlterar" novalidate>        
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
+					  <div class="col-sm-4">
+					  	<select class="form-control" name="alterarAula" ng-model="selecionaModificar" ng-value="0" ng-options="aula.nome for aula in aulas track by aula.nome" required></select>					  	
+				      <span ng-show="formAlterar.$submitted && formAlterar.alterarAula.$touched">
+				        <div class="alert alert-danger" ng-show="formAlterar.alterarAula.$error.required">
+				          Campo Obrigatório
+				        </div><!-- alert-danger -->
+				      </span> 
+					  </div> <!-- col-sm-4--> 
+					  <div ng-show="selecionaModificar"  class="col-sm-4">
+					  	<input required class="form-control" name="novoNomeAula" ng-model="nomeModificar" placeholder="Novo nome da aula">
+					  	<span ng-show="formAlterar.$submitted && formAlterar.novoNomeAula.$touched">
+				        <div class="alert alert-danger" ng-show="formAlterar.novoNomeAula.$error.required">
+				          Campo Obrigatório
+				        </div><!-- alert-danger -->
+				      </span> 
+					  </div>
+		        <div class="col-sm-1">
+            	<button type="submit" class="btn btn-primary" ng-click="alterarAula()">Alterar aula</button>
+          	</div> <!--col-sm-1 -->   
+	        </div><!--form-group-->
+				</form>
+				<hr>
+
+				<h3>Excluir aula</h3>
+				<form class="form-horizontal" name="formExcluir" novalidate>        
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
+					  <div class="col-sm-4">
+					  	<select class="form-control" name="excluirAula" ng-model="selecionaExcluir" ng-value="0" ng-options="aula.nome for aula in aulas track by aula.nome" required></select>
+				      <span ng-show="formExcluir.$submitted || formExcluir.excluirAula.$touched">
+				        <div class="alert alert-danger" ng-show="formExcluir.excluirAula.$error.required">
+				          Campo Obrigatório
+				        </div><!-- alert-danger -->
+				      </span> 
+					  </div> <!-- col-sm-4--> 
+					  <div class="col-sm-1">
+            	<button type="submit" class="btn btn-primary" ng-click="excluirAula()">Excluir aula</button>
+          	</div> <!--col-sm-1 -->   
+	        </div><!--form-group-->
+				</form>
+
+				<hr>
+			</div><!-- div row -->
+		</div><!-- div container -->
+	</div><!-- div controller -->		
+</body>
+</html>

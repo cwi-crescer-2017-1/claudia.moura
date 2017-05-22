@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Exercicio01</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="exercicio01.js"></script>
-  </head>
+<html ng-app="angularjs">
 
-  <body ng-app="angularjs">
-    <div ng-controller="coisa">
-      <label for="nome">Nome: </label>
-      <input type="text" ng-model="pokemon.nome" placeholder="nome do pokemon">
-      <hr>
-      <h2>{{ pokemon.nome }}</h2>
-      <h2>{{ pokemon.id }}</h2>
-    </div>
+<head>
+  <title>Correção Tema</title>
+</head>
 
-    <div ngcontroller="exemplo02" class="">
-      <label for="">Nome: </label>
-      <input type="text" ng-model="pokemon.nome" name="" value="">
+<body>
 
-      <ul>
-        <li>
-        </li>
-      </ul>
-    </div>
-  </body>
+  <div ng-controller="controller">
+
+    <h2>Lista Pokemon</h2>
+    <label for="nome">Filtro por Nome</label>
+    <input type="text" name="nome" ng-model="filtro.nome">
+
+    <label for="nome">Filtro por Tipo</label>
+    <input type="text" name="nome" ng-model="filtro.tipo">
+
+    <ul>
+      <li ng-repeat="pokemon in listaPokemon | filter: filtro">
+        {{ pokemon.nome }}<br>  Tipo: {{ pokemon.tipo }}
+      </li>
+    </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="exercicio01.js"></script>
+</body>
+
 </html>
