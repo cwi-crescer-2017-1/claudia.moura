@@ -3,26 +3,31 @@ let app = angular.module('app', ['ngRoute']);
 app.config(function ($routeProvider) {
 
   $routeProvider
-    .when('/pagina01', {
-      controller: 'Pagina01Controller',
-      templateUrl: 'pagina01.html'
+    .when('/home', {
+      controller: 'HomeController',
+      templateUrl: 'home.html'
     })
-    .when('/pagina02', {
-      controller: 'Pagina02Controller',
-      templateUrl: 'pagina02.html'
+    .when('/aulas', {
+      controller: 'AulasController',
+      templateUrl: 'aulas.html'
     })
-    .otherwise({redirectTo: '/pagina01'});
+    .when('/instrutores', {
+      controller: 'InstrutoresController',
+      templateUrl: 'instrutores.html'
+    })
+    .otherwise({
+      redirectTo: '/home'
+    });
 });
 
-app.controller('PrincipalController', function ($scope) {
-  $scope.controller = 'PrincipalController';
-  $scope.aulas = ['OO'];
+app.controller('HomeController', function ($scope) {
+  $scope.controller = 'HomeController';
 });
 
-app.controller('Pagina01Controller', function ($scope) {
-  $scope.controller = 'Pagina01Controller';
+app.controller('AulasController', function ($scope) {
+  $scope.controller = 'AulasController';
 });
 
-app.controller('Pagina02Controller', function ($scope) {
-  $scope.controller = 'Pagina02Controller';
+app.controller('InstrutoresController', function ($scope) {
+  $scope.controller = 'InstrutoresController';
 });

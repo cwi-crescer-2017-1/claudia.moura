@@ -37,7 +37,7 @@
 				<hr>
 
 				<h3>Adicionar nova aula</h3>
-				<form class="form-horizontal" name="formAdicionar" novalidate>        
+				<form class="form-horizontal" name="formAdicionar" novalidate>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
 					  <div class="col-sm-4">
@@ -46,8 +46,8 @@
 					        <div class="alert alert-danger" ng-show="formAdicionar.nomeAula.$error.required">
 					          Campo Obrigatório
 					        </div><!-- alert-danger -->
-					      </span> 
-					  </div> <!-- col-sm-4--> 
+					      </span>
+					  </div> <!-- col-sm-4-->
 
 	          <div class="col-sm-3">
 	            <div class="checkbox">
@@ -56,39 +56,39 @@
 	          </div>
 		        <div class="col-sm-1">
             	<button type="submit" class="btn btn-primary" ng-click="adicionarAula()">Inserir nova aula</button>
-          	</div> <!--col-sm-1 -->   
+          	</div> <!--col-sm-1 -->
 	        </div><!--form-group-->
 				</form>
 				<hr>
 				<h3>Alterar aula</h3>
-				<form class="form-horizontal" name="formAlterar" novalidate>        
+				<form class="form-horizontal" name="formAlterar" novalidate>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
 					  <div class="col-sm-4">
-					  	<select class="form-control" name="alterarAula" ng-model="selecionaModificar" ng-value="0" ng-options="aula.nome for aula in aulas track by aula.nome" required></select>					  	
+					  	<select class="form-control" name="alterarAula" ng-model="selecionaModificar" ng-value="0" ng-options="aula.nome for aula in aulas track by aula.nome" required></select>
 				      <span ng-show="formAlterar.$submitted && formAlterar.alterarAula.$touched">
 				        <div class="alert alert-danger" ng-show="formAlterar.alterarAula.$error.required">
 				          Campo Obrigatório
 				        </div><!-- alert-danger -->
-				      </span> 
-					  </div> <!-- col-sm-4--> 
+				      </span>
+					  </div> <!-- col-sm-4-->
 					  <div ng-show="selecionaModificar"  class="col-sm-4">
 					  	<input required class="form-control" name="novoNomeAula" ng-model="nomeModificar" placeholder="Novo nome da aula">
 					  	<span ng-show="formAlterar.$submitted && formAlterar.novoNomeAula.$touched">
 				        <div class="alert alert-danger" ng-show="formAlterar.novoNomeAula.$error.required">
 				          Campo Obrigatório
 				        </div><!-- alert-danger -->
-				      </span> 
+				      </span>
 					  </div>
 		        <div class="col-sm-1">
             	<button type="submit" class="btn btn-primary" ng-click="alterarAula()">Alterar aula</button>
-          	</div> <!--col-sm-1 -->   
+          	</div> <!--col-sm-1 -->
 	        </div><!--form-group-->
 				</form>
 				<hr>
 
 				<h3>Excluir aula</h3>
-				<form class="form-horizontal" name="formExcluir" novalidate>        
+				<form class="form-horizontal" name="formExcluir" novalidate>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="nome">Nome da aula:</label>
 					  <div class="col-sm-4">
@@ -97,11 +97,11 @@
 				        <div class="alert alert-danger" ng-show="formExcluir.excluirAula.$error.required">
 				          Campo Obrigatório
 				        </div><!-- alert-danger -->
-				      </span> 
-					  </div> <!-- col-sm-4--> 
+				      </span>
+					  </div> <!-- col-sm-4-->
 					  <div class="col-sm-1">
             	<button type="submit" class="btn btn-primary" ng-click="excluirAula()">Excluir aula</button>
-          	</div> <!--col-sm-1 -->   
+          	</div> <!--col-sm-1 -->
 	        </div><!--form-group-->
 				</form>
 
@@ -141,12 +141,12 @@
 						</td>
 						<td>
 						<img src="{{ instrutor.urlFoto }}" width="50px" height="50px" alt=""></td>
-						</td>						
+						</td>
 					</tr>
 				</table>
 
 				<h3>Adicionar novo instrutor</h3>
-				<form class="form-horizontal" name="formAdicionarInstrutor" novalidate>        
+				<form class="form-horizontal" name="formAdicionarInstrutor" novalidate>
 					<div class="form-group">
 	          <label class="control-label col-sm-3" for="nome">Nome:</label>
 	          <div class="col-sm-8">
@@ -205,7 +205,7 @@
           </div>
         </div>
 
-        <div class="form-group"> 
+        <div class="form-group">
           <div class="col-sm-offset-3 col-sm-8 col-sm-offset- ">
             <div class="checkbox">
               <label><input type="checkbox" ng-model="estaDandoAula" name="dandoAula">Dando aula</label>
@@ -225,7 +225,7 @@
           </div>
         </div>
 
-        <div class="form-group">        
+        <div class="form-group">
           <div class="col-sm-offset-2 col-sm-9  ">
             <button type="submit" class="btn btn-primary" ng-click="adicionarInstrutor()">Inserir</button>
           </div>
@@ -235,7 +235,7 @@
 
 	  	<h3>Modificar instrutor</h3>
 	  	<div>
-				<form class="form-horizontal" name="formModificarInstrutor" novalidate>        
+				<form class="form-horizontal" name="formModificarInstrutor" novalidate>
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="nome">Nome do instrutor:</label>
 					  <div class="col-sm-8">
@@ -244,10 +244,10 @@
 				        <div class="alert alert-danger" ng-show="formModificarInstrutor.exclui.$error.required">
 				          Campo Obrigatório
 				        </div><!-- alert-danger -->
-				      </span> 
-					  </div> <!-- col-sm-8--> 
+				      </span>
+					  </div> <!-- col-sm-8-->
 					</div>
-						<div ng-show="selecionaModificarInstrutor">        
+						<div ng-show="selecionaModificarInstrutor">
 							<div class="form-group">
 			          <label class="control-label col-sm-3" for="nome">Nome:</label>
 			          <div class="col-sm-8">
@@ -298,7 +298,7 @@
 		          </div>
 		        </div>
 
-		        <div class="form-group"> 
+		        <div class="form-group">
 		          <div class="col-sm-offset-3 col-sm-8 col-sm-offset- ">
 		            <div class="checkbox">
 		              <label><input type="checkbox" ng-model="estaDandoAulaModificado" name="modificarDandoAula">Dando aula</label>
@@ -320,15 +320,15 @@
 
 					  <div class="col-sm-1">
             	<button type="submit" name="exclui" class="btn btn-primary" ng-click="modificarInstrutor()">Modificar Instrutor</button>
-          	</div> <!--col-sm-1 -->   
+          	</div> <!--col-sm-1 -->
 	        </div><!--form-group-->
 	 			</form>
 	 		</div>
 
 
-	  	
-				<form class="form-horizontal" name="formExcluirInstrutor" novalidate>    
-				<h3>Excluir instrutor</h3>    
+
+				<form class="form-horizontal" name="formExcluirInstrutor" novalidate>
+				<h3>Excluir instrutor</h3>
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="nome">Nome do instrutor:</label>
 					  <div class="col-sm-4">
@@ -337,17 +337,17 @@
 				        <div class="alert alert-danger" ng-show="formExcluirInstrutor.exclui.$error.required">
 				          Campo Obrigatório
 				        </div><!-- alert-danger -->
-				      </span> 
-					  </div> <!-- col-sm-4--> 
+				      </span>
+					  </div> <!-- col-sm-4-->
 					  <div class="col-sm-1">
             	<button type="submit" name="exclui" class="btn btn-primary" ng-click="excluirInstrutor()">Excluir Instrutor</button>
-          	</div> <!--col-sm-1 -->   
+          	</div> <!--col-sm-1 -->
 	        </div><!--form-group-->
 				</form>
 
 
 			</div><!-- div row -->
 		</div><!-- div container -->
-	</div><!-- div controller -->		
+	</div><!-- div controller -->
 </body>
 </html>
