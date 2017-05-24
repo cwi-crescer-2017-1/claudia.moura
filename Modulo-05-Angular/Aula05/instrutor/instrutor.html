@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="row">            
+    <h2>Lista de Instrutores</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>ID</tr>
+        <th>Nome Completo </th>
+        <th>Idade</th>
+        <th>E-mail</th>
+        <th>Dando aula?</th>
+        <th>Aula(s)</th>
+        <th>Foto</th>
+      </thead>
+      <tbody>
+        <tr  ng-repeat="instrutor in instrutores"></tr>
+        <th scope="row">{{instrutor.id}}</th>           
+        <td>
+            {{ instrutor.nome }} {{instrutor.sobrenome}}
+        </td>
+        <td>
+            {{ instrutor.idade }}
+        </td>
+        <td>
+            {{ instrutor.email }}
+        </td>
+        <td>
+            {{ instrutor.lecionando }}
+        </td>
+        <td>
+          <ul class="ul-instrutor">
+            <li ng-repeat="aula in instrutor.aula">{{ aula.nome }}</li>
+          </ul>
+        </td>
+        <td>
+          <img src="{{ instrutor.urlFoto }}" width="50px" height="50px" alt=""></td>
+        </td>
+      </tbody>
+    </table>
+
+    <h3>Adicionar novo instrutor</h3>
+    <form class="form-horizontal" name="formInstrutor" novalidate>
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="nome">Nome:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="nomeDoInstrutor" ng-minlength ="3" ng-maxlength="20" ng-model="nomeInstrutor" required>
+        </div><!--col-sm-8-->
+      </div><!--form-group-->
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="sobrenome">Sobrenome:</label>
+        <div class="col-sm-8  ">
+          <input type="text" class="form-control" name="sobrenomeDoInstrutor" ng-minlength ="2" ng-maxlength="30" ng-model="sobrenomeInstrutor">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="Idade">Idade:</label>
+        <div class="col-sm-8  ">
+          <input type="number" class="form-control" name="idadeDoInstrutor" ng-model="idadeInstrutor" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Email:</label>
+        <div class="col-sm-8">
+          <input type="email" class="form-control" name="email" ng-model="emailInstrutor" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-8 col-sm-offset- ">
+          <div class="checkbox">
+            <label><input type="checkbox" ng-model="estaDandoAula" name="dandoAula">Dando aula</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="aula">Qual aula ministra (aperte ctrl para selecionar mais de uma):</label>
+        <select id="selecionarAulas" multiple name="AulasInstrutor" ng-model="selecionarAulasInstrutor" ng-options="aula.nome for aula in aulas track by aula.nome"></select>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="foto">Imagem</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" name="foto" ng-model="urlFotoInstrutor" placeholder="Inserir url da imagem" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9  ">
+          <button type="submit" class="btn btn-primary" ng-click="adicionarInstrutor()">Inserir</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+
+    <h3>Modificar instrutor</h3>
+    <div>
+      <form class="form-horizontal" name="formModificarInstrutor" novalidate>
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="nome">Nome do instrutor:</label>
+          <div class="col-sm-8">
+            <select class="form-control" name="modificarInstrutor" ng-model="selecionaModificarInstrutor" ng-value="0" ng-options="instrutor.nome for instrutor in instrutores " required></select>
+          </div> <!-- col-sm-8-->
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="nome">Nome:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="modificarNomeInstrutor" ng-minlength ="3" ng-maxlength="20" ng-model="nomeInstrutorModificado" required >
+          </div><!--col-sm-8-->
+        </div><!--form-group-->
+
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="sobrenome">Sobrenome:</label>
+          <div class="col-sm-8  ">
+            <input type="text" class="form-control" name="modificarSobrenomeDoInstrutor" ng-minlength ="2" ng-maxlength="30" ng-model="sobrenomeInstrutorModificado">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="Idade">Idade:</label>
+          <div class="col-sm-8  ">
+            <input type="number" class="form-control" name="modificarIdadeDoInstrutor" ng-model="idadeInstrutorModificada" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="email">Email:</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" name="modificarEmail" ng-model="emailInstrutorModificado" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-8 col-sm-offset- ">
+            <div class="checkbox">
+              <label><input type="checkbox" ng-model="estaDandoAulaModificado" name="modificarDandoAula">Dando aula</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="aula">Qual aula ministra (aperte ctrl para selecionar mais de uma):</label>
+          <select id="selecionarAulas" multiple name="AulasInstrutor" ng-model="selecionarAulasInstrutorModificado" ng-options="aula.nome for aula in aulas track by aula.nome"></select>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="foto">Imagem</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="fotoModificado" ng-model="urlFotoInstrutorModificado" placeholder="Inserir url da imagem" required>
+          </div>
+          <div class="col-sm-1">
+            <button type="submit" name="exclui" class="btn btn-primary" ng-click="modificarInstrutor()">Modificar Instrutor</button>
+          </div> <!--col-sm-1 -->
+        </div>
+
+        
+      </form>
+      <hr>
+      <h3>Excluir instrutor</h3>
+
+    <form class="form-horizontal" name="formExcluirInstrutor" novalidate>
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="nome">Nome do instrutor:</label>
+        <div class="col-sm-4">
+          <select class="form-control" name="excluirInstrutor" ng-model="selecionaExcluirInstrutor" ng-value="0" ng-options="instrutor.nome for instrutor in instrutores " required></select>
+        </div> <!-- col-sm-4-->
+        <div class="col-sm-1">
+          <button type="submit" name="exclui" class="btn btn-primary" ng-click="excluirInstrutor()">Excluir Instrutor</button>
+        </div> <!--col-sm-1 -->
+      </div><!--form-group-->
+    </form>
+  </div><!-- div row -->
+</div><!-- div container -->
