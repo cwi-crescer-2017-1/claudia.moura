@@ -1,0 +1,6 @@
+c:\DEV\Crescer\dotnet\Aula01\Demo01\bin\Debug\Demo01.exe.config
+c:\DEV\Crescer\dotnet\Aula01\Demo01\obj\Debug\Demo01.csprojResolveAssemblyReference.cache
+c:\DEV\Crescer\dotnet\Aula01\Demo01\bin\Debug\Demo01.exe
+c:\DEV\Crescer\dotnet\Aula01\Demo01\bin\Debug\Demo01.pdb
+c:\DEV\Crescer\dotnet\Aula01\Demo01\obj\Debug\Demo01.exe
+c:\DEV\Crescer\dotnet\Aula01\Demo01\obj\Debug\Demo01.pdb
