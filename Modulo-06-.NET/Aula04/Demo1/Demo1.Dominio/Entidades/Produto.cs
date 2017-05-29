@@ -15,6 +15,7 @@ namespace Demo1.Dominio.Entidades
         public bool Validar(out List<string> mensagens)
         {
             mensagens = new List<string>();
+
             if (Estoque < 1)
                 mensagens.Add("Estoque deve ser maior que zero.");
 
