@@ -1,4 +1,5 @@
 ﻿using EditoraCrescerInfraestrutura;
+using EditoraCrescerInfraestrutura.Entidades;
 using EditoraCrescerInfraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,9 @@ namespace EditoraCrescer.API.Controllers
 
         }
 
-        public IHttpActionResult Delete(Livro isbn)
+        public IHttpActionResult Delete(int id)
         {
-            repositorio.Excluir(isbn);
+            repositorio.Excluir(id);
             return Ok();
         }
     }

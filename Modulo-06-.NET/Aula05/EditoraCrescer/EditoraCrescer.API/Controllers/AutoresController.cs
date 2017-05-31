@@ -29,7 +29,7 @@ namespace EditoraCrescer.API.Controllers
 
         }
 
-        public IHttpActionResult Delete(Autor id)
+        public IHttpActionResult Delete(int id)
         {
             repositorio.Excluir(id);
             return Ok();

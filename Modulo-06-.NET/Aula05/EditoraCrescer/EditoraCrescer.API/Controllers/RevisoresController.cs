@@ -12,7 +12,7 @@ namespace EditoraCrescer.API.Controllers
 {
     public class RevisoresController : ApiController
     {
-        //private Contexto contexto = new Contexto();
+        private Contexto contexto = new Contexto();
 
         private RevisorRepositorio repositorioRevisor = new RevisorRepositorio();
 
@@ -29,9 +29,9 @@ namespace EditoraCrescer.API.Controllers
 
         }
 
-        public IHttpActionResult Delete(Revisor id)
+        public IHttpActionResult Delete(int id)
         {
-           // repositorioRevisor.Excluir(id);
+            repositorioRevisor.Excluir(id);
             return Ok();
         }
     }
