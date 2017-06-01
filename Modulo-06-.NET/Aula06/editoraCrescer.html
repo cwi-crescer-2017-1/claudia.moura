@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./editoraCrescer.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./editoraCrescer.css">
+  </head>
+
+  <body>
+    <div ng-app="app">
+      <header id="header-fixed">
+        <div>
+            <span id="titulo">Editora Crescer</span>
+            <span id="login">Login</span>
+        </div>
+      </header>
+
+      <div class="container">
+        <div ng-controller="CarouselDemoCtrl" id="slides_control">
+          <carousel interval="myInterval">
+            <slide ng-repeat="lancamento in lancamentos" active="slide.active">
+                <a href="#"><img src="{{ lancamento.foto }}" width="100px" height="200px" alt="Imagem não disponível"></a>
+                <div>{{ lancamento.nome }}</div>
+                <div>{{ lancamento.genero}}</div>
+                <div>{{ lancamento.autor }}</div>
+            </slide>
+          </carousel>
+        </div>
+        <div ng-controller="livrosOrdenados">
+
+
+
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        <p>Texto</p>
+        </div>
+      </div><!--div container-->
+
+
+    </div> <!-- ng-app-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+
+
+
+
+
+  <!--  <div class="container">
+
+      <header>
+
+      </header>
+        <div class="col-md-2 col-md-offset- boxLancamento" ng-repeat="lancamento in lancamentos">
+          <a href="#"><img src="{{ lancamento.foto }}" width="100px" height="100px" alt="Imagem não disponível"></a>
+          <div>{{ lancamento.nome }}</div>
+          <div>{{ lancamento.genero}}</div>
+          <div>{{ lancamento.autor }}</div>
+        </div>-->
+    </div><!--div row-->
+  </div><!--div container-->
+
+  </body>
+</html>
