@@ -13,7 +13,7 @@ namespace EditoraCrescerInfraestrutura.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201705301950407_CriacaoDoBanco"; }
+            get { return "201706042139482_CriacaoDoBanco"; }
         }
         
         string IMigrationMetadata.Source

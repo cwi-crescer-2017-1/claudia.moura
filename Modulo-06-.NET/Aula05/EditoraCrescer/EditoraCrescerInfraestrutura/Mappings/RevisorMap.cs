@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescerInfraestrutura.Mappings
 {
-    class RevisorMap : EntityTypeConfiguration<Autor>
+    public class RevisorMap : EntityTypeConfiguration<Revisor>
     {
         public RevisorMap()
         {

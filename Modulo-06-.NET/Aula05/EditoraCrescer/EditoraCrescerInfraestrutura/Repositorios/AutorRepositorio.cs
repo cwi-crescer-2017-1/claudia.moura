@@ -10,6 +10,7 @@ namespace EditoraCrescerInfraestrutura.Repositorios
     public class AutorRepositorio
     {
         private Contexto contexto = new Contexto();
+
         public AutorRepositorio()
         {
 
@@ -22,7 +23,6 @@ namespace EditoraCrescerInfraestrutura.Repositorios
 
         public void Inserir(Autor autor)
         {
-
             contexto.Autores.Add(autor);
             contexto.SaveChanges();
         }
@@ -32,7 +32,6 @@ namespace EditoraCrescerInfraestrutura.Repositorios
             var excluirAutor = contexto.Autores.FirstOrDefault(x => x.Id == id);
             contexto.Autores.Remove(excluirAutor);
             contexto.SaveChanges();
-
         }
     }
 }
