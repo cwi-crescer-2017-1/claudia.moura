@@ -26,5 +26,4 @@ namespace LocaGames.Dominio
             DataNascimento = dataNascimento;
         }
     }
-
 }
