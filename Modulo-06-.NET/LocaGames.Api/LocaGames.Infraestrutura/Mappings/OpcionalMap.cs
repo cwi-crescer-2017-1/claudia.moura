@@ -1,6 +1,7 @@
 ﻿using LocaGames.Dominio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,14 @@ namespace LocaGames.Infraestrutura.Mappings
         {
             ToTable("Opcionais");
 
-            HasRequired(x => x.Produto)
-                    .WithMany()
-                    .Map(x => x.MapKey("Id"));
+            HasKey(x => x.IdOpcional);
+
+            Property(x => x.IdOpcional)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(p => p.Nome).IsRequired();
+            Property(p => p.ValorDiaria).IsRequired();
+            Property(p => p.QuantidadeTotal).IsRequired();
+
         }
     }
 }

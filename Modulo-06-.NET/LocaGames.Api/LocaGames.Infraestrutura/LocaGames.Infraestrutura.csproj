@@ -50,10 +50,17 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Mappings\ClienteMap.cs" />
     <Compile Include="Mappings\FuncionarioMap.cs" />
+    <Compile Include="Mappings\LocacaoOpcionalMap.cs" />
     <Compile Include="Mappings\LocacaoMap.cs" />
     <Compile Include="Mappings\OpcionalMap.cs" />
     <Compile Include="Mappings\PacoteMap.cs" />
+    <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\ProdutoMap.cs" />
+    <Compile Include="Migrations\201706072040029_InitialDB.cs" />
+    <Compile Include="Migrations\201706072040029_InitialDB.Designer.cs">
+      <DependentUpon>201706072040029_InitialDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +75,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706072040029_InitialDB.resx">
+      <DependentUpon>201706072040029_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

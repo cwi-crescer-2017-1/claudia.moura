@@ -8,10 +8,18 @@ namespace LocaGames.Dominio
 {
     public class Opcional
     {
-        public int Id { get; private set; }
-        public string Tipo { get; private set; }
-        public Produto Console { get; private set; }
+        public int IdOpcional { get; private set; }
+        public string Nome { get; private set; }
         public double ValorDiaria { get; private set; }
         public int QuantidadeTotal { get; private set; }
-    }
+
+        protected Opcional() { }
+
+        public Opcional(string nome, double valorDiaria, int quantidadeTotal, Produto console)
+        {
+            Nome = nome;
+            ValorDiaria = valorDiaria;
+            QuantidadeTotal = quantidadeTotal;
+        }
+    } 
 }

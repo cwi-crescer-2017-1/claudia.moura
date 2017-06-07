@@ -9,19 +9,17 @@ using System.Threading.Tasks;
 
 namespace LocaGames.Infraestrutura.Mappings
 {
-    public class FuncionarioMap : EntityTypeConfiguration<Funcionario>
+    public class PermissaoMap : EntityTypeConfiguration<Permissao>
     {
-        public FuncionarioMap()
+
+        public PermissaoMap() 
         {
-            ToTable("Funcionarios");
+            HasKey(x => x.IdPermissao);
 
-            HasKey(x => x.IdFuncionario);
-            Property(x => x.IdFuncionario)
+            Property(p => p.Nome).IsRequired();
+            Property(x => x.IdPermissao)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            Property(p => p.Nome).IsRequired().HasMaxLength(100);
-            Property(p => p.Email).IsRequired(); 
-            Property(p => p.Senha).IsRequired();
         }
     }
 }
+
