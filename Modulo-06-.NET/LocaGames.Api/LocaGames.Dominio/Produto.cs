@@ -11,7 +11,7 @@ namespace LocaGames.Dominio
         public int IdProduto { get; private set; }
         public string Console { get; private set; }
         public double ValorDiaria { get; private set; }
-        public int Quantidade { get; private set; }
+        public int Quantidade { get; set; }
 
         protected Produto() { }
 

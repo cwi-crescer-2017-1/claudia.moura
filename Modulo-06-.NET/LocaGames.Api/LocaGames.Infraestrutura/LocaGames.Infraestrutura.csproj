@@ -62,10 +62,14 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios_\ClienteRepositorio.cs" />
+    <Compile Include="Repositorios_\FuncionarioRepositorio.cs" />
+    <Compile Include="Repositorios_\LocacaoRepositorio.cs" />
+    <Compile Include="Repositorios_\OpcionalRepositorio.cs" />
+    <Compile Include="Repositorios_\PacoteRepositorio.cs" />
+    <Compile Include="Repositorios_\ProdutoRepositorio.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositorios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LocaGames.Dominio\LocaGames.Dominio.csproj">
       <Project>{72F6600D-F2DD-4646-9EBA-C068D49B2A7B}</Project>

@@ -16,7 +16,7 @@ namespace LocaGames.Infraestrutura
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<Locacao> Locacoes { get; set; }
+        public DbSet<Locacao> Locacao { get; set; }
         public DbSet<Opcional> Opcionais { get; set; }
         public DbSet<Pacote> Pacotes { get; set; }
         public DbSet<Produto> Produtos { get; set; }

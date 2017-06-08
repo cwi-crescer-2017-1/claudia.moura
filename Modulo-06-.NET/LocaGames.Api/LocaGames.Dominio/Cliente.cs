@@ -17,7 +17,7 @@ namespace LocaGames.Dominio
 
         protected Cliente() { }
 
-        public Cliente(string nome, string endereco, string cidade, string cpf, string genero, DateTime dataNascimento)
+        public Cliente(string nome, string endereco, string cpf, string genero, DateTime dataNascimento)
         {
             Nome = nome;
             Endereco = endereco;            
