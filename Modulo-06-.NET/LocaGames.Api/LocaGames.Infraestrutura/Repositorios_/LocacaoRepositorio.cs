@@ -32,7 +32,7 @@ namespace LocaGames.Infraestrutura.Repositorios_
         {
             return contexto.Locacao
                 .Include("Cliente")
-                .Where(l => l.DataEntregaReal == null && l.DataEntregaPrevista < DateTime.Now)
+                //.Where(l => l.DataEntregaReal == null && l.DataEntregaPrevista < DateTime.Now)
                 .Select(l => l.Cliente)
                 .ToList();
         }

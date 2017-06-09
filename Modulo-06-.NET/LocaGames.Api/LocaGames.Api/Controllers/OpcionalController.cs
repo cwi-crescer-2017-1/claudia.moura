@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-namespace LocaGames.Controllers 
+namespace LocaGames.Controllers
 {
-    [RoutePrefix("api/funcionario")]
-    public class FuncionarioController : ApiController
+    [RoutePrefix("api/opcional")]
+    public class OpcionalController : ApiController
     {
     }
 }

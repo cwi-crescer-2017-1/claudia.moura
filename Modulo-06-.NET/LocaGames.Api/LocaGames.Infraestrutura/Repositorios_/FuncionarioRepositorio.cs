@@ -1,6 +1,7 @@
 ﻿using LocaGames.Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,25 +10,21 @@ namespace LocaGames.Infraestrutura.Repositorios_
 {
     public class FuncionarioRepositorio : IDisposable
     {
-        Contexto contexto = new Contexto();
+        private Contexto contexto = new Contexto();
 
-        public FuncionarioRepositorio()
-        {
-
-        }
-
-        public void CadastrarFuncionario(Funcionario funcionario)
+        public void Criar(Funcionario funcionario)
         {
             contexto.Funcionarios.Add(funcionario);
             contexto.SaveChanges();
         }
 
-        public Funcionario ObterFuncionario(string email)
+        public Funcionario Obter(string email)
         {
-            return contexto.Funcionarios
-                .FirstOrDefault(f => f.Email == email);
+            return contexto.Funcionarios.Where(u => u.Email == email)
+                .Include(a => a.Permissoes)
+                .FirstOrDefault();
         }
-        
+
         public void Dispose()
         {
             contexto.Dispose();

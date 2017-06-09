@@ -121,6 +121,16 @@
   <ItemGroup>
     <Folder Include="App_Start\App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocaGames.Dominio\LocaGames.Dominio.csproj">
+      <Project>{72F6600D-F2DD-4646-9EBA-C068D49B2A7B}</Project>
+      <Name>LocaGames.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocaGames.Infraestrutura\LocaGames.Infraestrutura.csproj">
+      <Project>{E7F48F3C-38FB-490C-9DA3-8473D5CA8CF1}</Project>
+      <Name>LocaGames.Infraestrutura</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

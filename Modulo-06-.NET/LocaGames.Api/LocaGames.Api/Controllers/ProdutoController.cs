@@ -6,6 +6,8 @@ using System.Web.Http;
 
 namespace LocaGames.Controllers
 {
+    [RoutePrefix("api/produto")]
+
     public class ProdutoController : ApiController
     {
     }
