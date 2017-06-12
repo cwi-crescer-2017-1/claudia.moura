@@ -1,5 +1,5 @@
-modulo.factory('locacaoService', function($http) {  
-    let urlLocacao = 'http://localhost:55732/api/locacoes'; 
+modulo.factory('locacaoService', function($http) {
+    let urlLocacao = 'http://localhost:55732/api/locacoes';
     let urlProduto = 'http://localhost:55732/api/produtos';
     let urlPacote = 'http://localhost:55732/api/pacotes';
     let urlCliente = 'http://localhost:55732/api/Clientes';
@@ -17,10 +17,10 @@ modulo.factory('locacaoService', function($http) {
         return $http.get(`${urlCliente}`);
     }
 
-    function buscarAdicionais() {
-        return $http.get(`${urlItens}`);
-    }
-    
+    // function buscarAdicionais() {
+    //     return $http.get(`${urlItens}`);
+    // }
+
     function salvar(locacao) {
         console.log(locacao);
         return $http.post(`${urlLocacao}`,locacao);
@@ -30,7 +30,7 @@ modulo.factory('locacaoService', function($http) {
          buscarProdutos: buscarProdutos,
          buscarPacotes : buscarPacotes,
          buscarClientes : buscarClientes,
-         buscarAdicionais: buscarAdicionais,
+        //  buscarAdicionais: buscarAdicionais,
          salvar : salvar
     };
 })

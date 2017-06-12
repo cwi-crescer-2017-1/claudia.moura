@@ -1,29 +1,30 @@
-modulo.controller("locacaoController", function($scope, locacaoService, authService, $location){
+modulo.controller("locacaoController", function($scope, locacaoService, $location){
 
     $scope.salvar = salvar;
-    $scope.deslogar = deslogar;
-    $scope.relatorio = relatorio;
-    $scope.devolucao = devolucao;
+    // $scope.deslogar = deslogar;
+    // $scope.relatorio = relatorio;
+    // $scope.devolucao = devolucao;
 
     buscarCliente();
     buscarProduto();
     buscarPacotes();
-    buscarAdicionais();
+    // buscarAdicionais();
 
     function buscarCliente() {
         let promise = locacaoService.buscarClientes();
 
         promise.then(function (response) {
             $scope.clientes = response.data.dados;
-        }); 
+        });
     }
-    
+
     function buscarProduto() {
         let promise = locacaoService.buscarProdutos();
 
         promise.then(function (response) {
             $scope.produtos = response.data.dados;
-        }); 
+            console.log(response.data.dados);
+        });
     }
 
     function buscarPacotes() {
@@ -31,16 +32,16 @@ modulo.controller("locacaoController", function($scope, locacaoService, authServ
 
         promise.then(function (response) {
             $scope.pacotes = response.data.dados;
-        }); 
+        });
     }
 
-    function buscarAdicionais() {
-        let promise = locacaoService.buscarAdicionais();
-
-        promise.then(function (response) {
-            $scope.adicionais = response.data.dados;
-        }); 
-    }
+    // function buscarAdicionais() {
+    //     let promise = locacaoService.buscarAdicionais();
+    //
+    //     promise.then(function (response) {
+    //         $scope.adicionais = response.data.dados;
+    //     });
+    // }
 
     function salvar(locacao) {
         if ($scope.formLocacao.$invalid) {
@@ -67,4 +68,4 @@ modulo.controller("locacaoController", function($scope, locacaoService, authServ
     function devolucao() {
         $location.path('/devolucao');
     }*/
-}); 
+});

@@ -19,7 +19,7 @@ modulo.config(function($routeProvider) {
           return authService.isAutenticadoPromise();
         }
       }*/
-      
+
     })/*
     .when('/relatorio', {
       controller: 'relatorioController',
