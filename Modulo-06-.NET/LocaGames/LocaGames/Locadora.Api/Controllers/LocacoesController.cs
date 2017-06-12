@@ -1,4 +1,4 @@
-﻿/*using Locadora.Api.Models;
+﻿using Locadora.Api.Models;
 using Locadora.Infraestrutura.Repositorios;
 using Locadora.Dominio.Entidades;
 using System;
@@ -25,17 +25,8 @@ namespace Locadora.Api.Controllers
         [HttpGet]
         public IHttpActionResult ObterLocacoes()
         {
-            var locacoes = repositorioLocacao.Obter();
+            var locacoes = repositorioLocacao.ObterLocacoes();
             return Ok(new { dados = locacoes });
-        }
-
-        //GET api/Locacoes
-        [HttpGet]
-        [Route("devolucoes")]
-        public IHttpActionResult ObterLocacoesNaoDevolvidas()
-        {
-            var locacoesNaoDevolvidas = repositorioLocacao.ObterLocacoesNaoDevolvidas();
-            return Ok(new { dados = locacoesNaoDevolvidas });
         }
 
         //GET api/Locacoes
@@ -48,7 +39,7 @@ namespace Locadora.Api.Controllers
         }
 
         [HttpGet]
-        [BasicAuthorization(Roles ="Gerente")]
+        //[BasicAuthorization(Roles = "Gerente")]
         [Route("{dataFiltro}")]
         public IHttpActionResult ObterLocacoesMensais(DateTime dataFiltro)
         {
@@ -64,17 +55,16 @@ namespace Locadora.Api.Controllers
             var produto = locacaoModel.Produto;
             var pacote = locacaoModel.Pacote;
 
-            var locacao = new Locacao(cliente, produto, pacote, locacaoModel.Opcionais);
-            repositorioLocacao.Criar(locacao);
+            var locacao = new Locacao(produto, pacote, cliente);
+            repositorioLocacao.CadastrarLocacao(locacao);
 
-            repositorioProduto.DiminuirEstoque(produto.Id);
-            repositorioOpcionais.DiminuirEstoque(locacaoModel.Opcionais);
-            repositorioOpcionais.DiminuirEstoque(locacaoModel.Pacote.Opcionais);
+            repositorioProduto.DiminuirEstoque(produto.IdProduto);
+           // repositorioOpcionais.DiminuirEstoque(locacaoModel.Opcionais);
 
             return Ok(locacao);
         }
 
-        //devolucao
+        /*//devolucao
         [HttpPut]
         [Route("{id}")]
         public IHttpActionResult DevolverLocacao(int id)
@@ -88,18 +78,18 @@ namespace Locadora.Api.Controllers
 
             repositorioLocacao.Editar(locacao);
             return Ok(locacao);
-        }
+        }*/
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
                 repositorioLocacao.Dispose();
-                repositorioCliente.Dispose();
-                repositorioProduto.Dispose();
-                repositorioPacote.Dispose();
-                repositorioOpcionais.Dispose();
+            repositorioCliente.Dispose();
+            repositorioProduto.Dispose();
+            repositorioPacote.Dispose();
+            repositorioOpcionais.Dispose();
             base.Dispose(disposing);
         }
+
     }
 }
-*/

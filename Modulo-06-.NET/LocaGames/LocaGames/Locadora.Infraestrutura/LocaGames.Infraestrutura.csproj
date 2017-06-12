@@ -92,6 +92,38 @@
     <Compile Include="Migrations\201706111103191_InserirPermissao.Designer.cs">
       <DependentUpon>201706111103191_InserirPermissao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706120050527_CriacaoProduto.cs" />
+    <Compile Include="Migrations\201706120050527_CriacaoProduto.Designer.cs">
+      <DependentUpon>201706120050527_CriacaoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120113301_CriacaoOpcionais.cs" />
+    <Compile Include="Migrations\201706120113301_CriacaoOpcionais.Designer.cs">
+      <DependentUpon>201706120113301_CriacaoOpcionais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120241372_CriacaoPacote.cs" />
+    <Compile Include="Migrations\201706120241372_CriacaoPacote.Designer.cs">
+      <DependentUpon>201706120241372_CriacaoPacote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120244297_CriacaoPacote1.cs" />
+    <Compile Include="Migrations\201706120244297_CriacaoPacote1.Designer.cs">
+      <DependentUpon>201706120244297_CriacaoPacote1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120529495_CriacaoLocacao.cs" />
+    <Compile Include="Migrations\201706120529495_CriacaoLocacao.Designer.cs">
+      <DependentUpon>201706120529495_CriacaoLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120631102_CriacaoLocacao2.cs" />
+    <Compile Include="Migrations\201706120631102_CriacaoLocacao2.Designer.cs">
+      <DependentUpon>201706120631102_CriacaoLocacao2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120645071_CriacaoLocacao3.cs" />
+    <Compile Include="Migrations\201706120645071_CriacaoLocacao3.Designer.cs">
+      <DependentUpon>201706120645071_CriacaoLocacao3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706120746438_AlteracaoLocacao.cs" />
+    <Compile Include="Migrations\201706120746438_AlteracaoLocacao.Designer.cs">
+      <DependentUpon>201706120746438_AlteracaoLocacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
@@ -126,6 +158,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706111103191_InserirPermissao.resx">
       <DependentUpon>201706111103191_InserirPermissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120050527_CriacaoProduto.resx">
+      <DependentUpon>201706120050527_CriacaoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120113301_CriacaoOpcionais.resx">
+      <DependentUpon>201706120113301_CriacaoOpcionais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120241372_CriacaoPacote.resx">
+      <DependentUpon>201706120241372_CriacaoPacote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120244297_CriacaoPacote1.resx">
+      <DependentUpon>201706120244297_CriacaoPacote1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120529495_CriacaoLocacao.resx">
+      <DependentUpon>201706120529495_CriacaoLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120631102_CriacaoLocacao2.resx">
+      <DependentUpon>201706120631102_CriacaoLocacao2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120645071_CriacaoLocacao3.resx">
+      <DependentUpon>201706120645071_CriacaoLocacao3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706120746438_AlteracaoLocacao.resx">
+      <DependentUpon>201706120746438_AlteracaoLocacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

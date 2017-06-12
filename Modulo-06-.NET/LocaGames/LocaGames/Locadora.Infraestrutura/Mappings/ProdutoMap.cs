@@ -14,7 +14,7 @@ namespace Locadora.Infraestrutura.Mappings
 
         public ProdutoMap()
         {
-            ToTable("Produtos");
+            ToTable("Produto");
 
             HasKey(x => x.IdProduto);
 

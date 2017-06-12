@@ -23,7 +23,7 @@ namespace Locadora.Infraestrutura.Mappings
 
             Property(p => p.Nome).IsRequired();
             Property(p => p.QuantidadeDias).IsRequired();
-            Property(p => p.ValorPacote).IsRequired();
+            Property(p => p.DescontoPacote).IsRequired();
 
         }        
     }

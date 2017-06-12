@@ -1,4 +1,4 @@
-﻿/*using Locadora.Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +15,12 @@ namespace Locadora.Infraestrutura.Repositorios
         public List<Pacote> Obter()
         {
             return contexto.Pacotes
-                .Include(x => x.Opcionais)
                 .ToList();
         }
 
         public Pacote ObterPacotePorId(int id)
         {
-            return contexto.Pacotes.Where(x => x.Id == id).FirstOrDefault();
+            return contexto.Pacotes.Where(x => x.IdPacote == id).FirstOrDefault();
         }
 
         public void Dispose()
@@ -30,4 +29,3 @@ namespace Locadora.Infraestrutura.Repositorios
         }
     }
 }
-*/

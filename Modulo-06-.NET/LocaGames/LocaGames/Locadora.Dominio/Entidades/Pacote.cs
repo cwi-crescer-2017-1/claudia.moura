@@ -10,15 +10,15 @@ namespace Locadora.Dominio.Entidades
     {
         public int IdPacote { get; private set; }
         public string Nome { get; private set; }
-        public double ValorPacote { get; private set; }
+        public decimal DescontoPacote { get; private set; }
         public int QuantidadeDias { get; private set; }
 
         protected Pacote() { }
 
-        public Pacote(string nome, double valor, int qtdeDias)
+        public Pacote(string nome, decimal valor, int qtdeDias)
         {
             Nome = nome;
-            ValorPacote = valor;
+            DescontoPacote = valor;
             QuantidadeDias = qtdeDias;
         }        
     }

@@ -1,4 +1,4 @@
-﻿/*using Locadora.Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +18,20 @@ namespace Locadora.Infraestrutura.Repositorios
 
         public Produto ObterProdutoPorId(int id)
         {
-            return contexto.Produtos.Where(x => x.Id == id).FirstOrDefault();
+            return contexto.Produtos.Where(x => x.IdProduto == id).FirstOrDefault();
         }
-
         public void DiminuirEstoque(int id)
         {
-            var produto = contexto.Produtos.Where(x => x.Id == id).FirstOrDefault();
-            --produto.QtdEstoque;
+            var produto = contexto.Produtos.Where(x => x.IdProduto == id).FirstOrDefault();
+            --produto.QuantidadeProduto;
+            contexto.SaveChanges();
+            return;
+        }
+
+        public void AumentarEstoque(int id)
+        {
+            var produto = contexto.Produtos.Where(x => x.IdProduto == id).FirstOrDefault();
+            ++produto.QuantidadeProduto;
             contexto.SaveChanges();
             return;
         }
@@ -33,13 +40,5 @@ namespace Locadora.Infraestrutura.Repositorios
         {
             contexto.Dispose();
         }
-
-        public void AumentarEstoque(int id)
-        {
-            var produto = contexto.Produtos.Where(x => x.Id == id).FirstOrDefault();
-            ++produto.QtdEstoque;
-            contexto.SaveChanges();
-            return;
-        }
     }
-}*/
+}

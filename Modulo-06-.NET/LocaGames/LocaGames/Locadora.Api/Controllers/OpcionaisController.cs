@@ -1,4 +1,4 @@
-﻿/*using Locadora.Api.App_Start;
+﻿using Locadora.Api.App_Start;
 using Locadora.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -10,12 +10,12 @@ using System.Web.Http;
 namespace Locadora.Api.Controllers
 {
     //[BasicAuthorization]
-    [RoutePrefix("api/Opcionais")]
+    [RoutePrefix("api/opcionais")]
     public class OpcionaisController : ApiController
     {
         private OpcionalRepositorio repositorio = new OpcionalRepositorio();
 
-        //GET api/Opcionais
+        //GET api/opcionais
         [HttpGet]
         public IHttpActionResult ObterOpcionais()
         {
@@ -32,4 +32,3 @@ namespace Locadora.Api.Controllers
         }
     }
 }
-*/

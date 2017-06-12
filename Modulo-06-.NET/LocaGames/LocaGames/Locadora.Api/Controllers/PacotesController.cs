@@ -1,4 +1,4 @@
-﻿/*using Locadora.Api.App_Start;
+﻿using Locadora.Api.App_Start;
 using Locadora.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Web.Http;
 namespace Locadora.Api.Controllers
 {
     //[BasicAuthorization]
-    [RoutePrefix("api/Pacotes")]
+    [RoutePrefix("api/pacotes")]
     public class PacotesController : ApiController
     {
         private PacoteRepositorio repositorio = new PacoteRepositorio();
@@ -31,4 +31,3 @@ namespace Locadora.Api.Controllers
         }
     }
 }
-*/

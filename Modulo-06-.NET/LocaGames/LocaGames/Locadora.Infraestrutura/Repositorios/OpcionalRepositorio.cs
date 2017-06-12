@@ -1,4 +1,4 @@
-﻿/*using Locadora.Dominio.Entidades;
+﻿using Locadora.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,53 +15,36 @@ namespace Locadora.Infraestrutura.Repositorios
         {
             return contexto.Opcionais.ToList();
         }
-
-        public List<Opcional> ObterOpcionaisPorId(List<int> listaOpcionais)
-        {
-            List<Opcional> retorno = null;
-            foreach (var id in listaOpcionais)
-            {
-                var opcional = ObterPorId(id);
-                retorno.Add(opcional);
-            }
-            return retorno;
-        }
-
+       
         public Opcional ObterPorId(int id)
         {
-            return contexto.Opcionais.Where(x => x.Id == id).FirstOrDefault();
+            return contexto.Opcionais.Where(x => x.IdOpcional == id).FirstOrDefault();
+        }
+
+        public Opcional ObterPorNome(string nome)
+        {
+            return contexto.Opcionais.Where(x => x.Nome == nome).FirstOrDefault();
+        }
+
+        public void DiminuirEstoque(int id)
+        {
+            var produto = contexto.Opcionais.Where(x => x.IdOpcional == id).FirstOrDefault();
+            --produto.QuantidadeTotal;
+            contexto.SaveChanges();
+            return;
+        }
+
+        public void AumentarEstoque(int id)
+        {
+            var produto = contexto.Opcionais.Where(x => x.IdOpcional == id).FirstOrDefault();
+            ++produto.QuantidadeTotal;
+            contexto.SaveChanges();
+            return;
         }
 
         public void Dispose()
         {
             contexto.Dispose();
-        }
-
-        public Opcional BuscarPorId(int id)
-        {
-            return contexto.Opcionais.Where(x => x.Id == id).FirstOrDefault();
-        }
-
-        public void DiminuirEstoque(List<Opcional> listaOpcionais)
-        {
-            foreach (var opcional in listaOpcionais)
-            {
-               var opc = contexto.Opcionais.Where(x => x.Id == opcional.Id).FirstOrDefault();
-               --opc.QtdEstoque;
-            }
-            contexto.SaveChanges();
-            return;
-        }
-
-        public void AumentarEstoque(List<Opcional> listaOpcionais)
-        {
-            foreach (var opcional in listaOpcionais)
-            {
-                var opc = contexto.Opcionais.Where(x => x.Id == opcional.Id).FirstOrDefault();
-                ++opc.QtdEstoque;
-            }
-            contexto.SaveChanges();
-            return;
-        }
+        }        
     }
-}*/
+}

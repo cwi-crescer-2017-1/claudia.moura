@@ -6,21 +6,31 @@ using System.Threading.Tasks;
 
 namespace Locadora.Dominio.Entidades
 {
-    public class Opcional
+    public class Opcional 
     {
 
         public int IdOpcional { get; private set; }
         public string Nome { get; private set; }
-        public double ValorDiaria { get; private set; }
+        public decimal ValorDiaria { get; private set; }
         public int QuantidadeTotal { get; set; }
 
         protected Opcional() { }
 
-        public Opcional(string nome, double valorDiaria, int quantidadeTotal)
+        public Opcional(string nome, decimal valorDiaria, int quantidadeTotal)
         {
             Nome = nome;
             ValorDiaria = valorDiaria;
-            QuantidadeTotal = quantidadeTotal;
+            QuantidadeTotal = quantidadeTotal;            
+        }
+
+        public void DiminuirEstoque(int quantidade)
+        {
+            QuantidadeTotal -= quantidade;
+        }
+
+        public void AumentarEstoque(int quantidade)
+        {
+            QuantidadeTotal += quantidade;
         }
     }
 }

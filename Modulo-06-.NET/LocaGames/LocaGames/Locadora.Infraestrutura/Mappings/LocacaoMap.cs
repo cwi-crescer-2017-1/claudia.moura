@@ -21,13 +21,11 @@ namespace Locadora.Infraestrutura.Mappings
             Property(x => x.IdLocacao)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(p => p.ValorTotal).IsRequired();
-
             HasRequired(x => x.Console)
                 .WithMany()
                 .Map(x => x.MapKey("IdProduto"));
 
-            HasOptional(x => x.Pacote)
+            HasRequired(x => x.Pacote)
                 .WithMany()
                 .Map(x => x.MapKey("IdPacote"));
 
@@ -35,9 +33,19 @@ namespace Locadora.Infraestrutura.Mappings
                 .WithMany()
                 .Map(x => x.MapKey("IdCliente"));
 
+            Property(p => p.ValorDiario).IsOptional();
+            Property(p => p.ValorTotal).IsOptional();
+           // Property(p => p.TotalOpcionais).IsOptional();
+            Property(p => p.ValorPago).IsOptional();
+            Property(p => p.DataLocacao).IsOptional();
+            Property(p => p.DataDevolucao).IsOptional();
+            Property(p => p.DataDevolucaoReal).IsOptional();
+            Property(p => p.DiasAtrasados).IsOptional();
+            Property(p => p.DataDevolucao).IsOptional();
+
 
         }
 
     }
-    
+
 }

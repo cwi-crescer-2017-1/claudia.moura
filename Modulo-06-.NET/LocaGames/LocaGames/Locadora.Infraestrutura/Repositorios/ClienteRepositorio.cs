@@ -22,13 +22,6 @@ namespace Locadora.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
-        public void Excluir(int id)
-        {
-            var excluir = contexto.Clientes.FirstOrDefault(x => x.IdCliente == id);
-            contexto.Clientes.Remove(excluir);
-            contexto.SaveChanges();
-        }
-
         public Cliente ObterUnicoCliente(string cpf)
         {
             return contexto.Clientes.Where(c => c.CPF == cpf).FirstOrDefault();
